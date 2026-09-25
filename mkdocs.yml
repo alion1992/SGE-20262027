@@ -1,0 +1,15 @@
+site_name: SGE - UD2 Odoo con Docker
+theme:
+  name: material
+  language: es
+  features: [navigation.sections, navigation.top, content.code.copy, toc.follow]
+nav:
+  - Inicio: index.md
+  - 1. Docker: docker.md
+  - 2. Estructura: estructura.md
+  - 3. Docker Compose: docker-compose.md
+  - 4. Odoo.conf: odoo-conf.md
+  - 5. Puesta en marcha: puesta-en-marcha.md
+  - 6. Mantenimiento: mantenimiento.md
+  - 7. Práctica: practica.md
+markdown_extensions: [admonition, attr_list, pymdownx.details, pymdownx.superfences, pymdownx.highlight]
