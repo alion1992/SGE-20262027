@@ -1,0 +1,1130 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mantenimiento/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>7. Práctica - SGE - UD2 Odoo con Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-instalacion-y-exploracion-tecnica-de-odoo-17" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="SGE - UD2 Odoo con Docker" class="md-header__button md-logo" aria-label="SGE - UD2 Odoo con Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SGE - UD2 Odoo con Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Práctica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SGE - UD2 Odoo con Docker" class="md-nav__button md-logo" aria-label="SGE - UD2 Odoo con Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SGE - UD2 Odoo con Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odoo-conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Odoo.conf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puesta-en-marcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Puesta en marcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mantenimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Mantenimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Práctica
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-preparacion-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Preparación del proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Preparación del proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-1-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 1 — Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-puesta-en-marcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Puesta en marcha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Puesta en marcha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-2-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 2 — Contenedores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comprobacion-de-odoo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comprobación de Odoo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comprobación de Odoo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-3-odoo-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 3 — Odoo funcionando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-preparacion-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Preparación del proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Preparación del proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-1-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 1 — Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-puesta-en-marcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Puesta en marcha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Puesta en marcha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-2-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 2 — Contenedores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comprobacion-de-odoo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comprobación de Odoo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comprobación de Odoo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evidencia-3-odoo-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia 3 — Odoo funcionando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="practica-instalacion-y-exploracion-tecnica-de-odoo-17">Práctica: instalación y exploración técnica de Odoo 17</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>En esta práctica se realizará la instalación de <strong>Odoo 17 y PostgreSQL mediante Docker Compose</strong> y se comprobará su correcto funcionamiento.</p>
+<p>Una vez instalado Odoo, se activará el <strong>modo desarrollador</strong> para explorar cómo Odoo representa técnicamente sus modelos, campos, vistas y tablas.</p>
+<div class="admonition important">
+<p class="admonition-title">Entrega</p>
+<p>El documento de entrega deberá incluir las capturas solicitadas como evidencias.<br />
+En cada captura debe apreciarse claramente la información que se pide comprobar.</p>
+</div>
+<hr />
+<h2 id="1-preparacion-del-proyecto">1. Preparación del proyecto</h2>
+<p>Crea la estructura de carpetas utilizada durante la unidad:</p>
+<div class="highlight"><pre><span></span><code>odoo/
+├── docker-compose.yml
+├── config_odoo/
+│   └── odoo.conf
+├── dev-addons/
+└── log/
+</code></pre></div>
+<p>Configura <code>docker-compose.yml</code> y <code>odoo.conf</code> siguiendo los apuntes de la unidad.</p>
+<h3 id="evidencia-1-estructura-del-proyecto">Evidencia 1 — Estructura del proyecto</h3>
+<p>Adjunta una captura donde pueda verse la estructura completa de carpetas y archivos.</p>
+<p><strong>Debe apreciarse:</strong></p>
+<ul>
+<li><code>docker-compose.yml</code></li>
+<li><code>config_odoo/odoo.conf</code></li>
+<li><code>dev-addons/</code></li>
+<li><code>log/</code></li>
+</ul>
+<hr />
+<h2 id="2-puesta-en-marcha">2. Puesta en marcha</h2>
+<p>Desde la carpeta donde se encuentra <code>docker-compose.yml</code>, ejecuta:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>Comprueba el estado de los contenedores:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>ps
+</code></pre></div>
+<p>También puedes utilizar:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
+</code></pre></div>
+<h3 id="evidencia-2-contenedores">Evidencia 2 — Contenedores</h3>
+<p>Adjunta una captura donde aparezcan los contenedores de <strong>Odoo y PostgreSQL en ejecución</strong>.</p>
+<p>En la captura deben poder identificarse:</p>
+<ul>
+<li>nombre o servicio;</li>
+<li>imagen utilizada;</li>
+<li>estado;</li>
+<li>puerto publicado de Odoo.</li>
+</ul>
+<hr />
+<h2 id="3-comprobacion-de-odoo">3. Comprobación de Odoo</h2>
+<p>Accede desde el navegador a:</p>
+<div class="highlight"><pre><span></span><code>http://localhost:8069
+</code></pre></div>
+<p>Crea una base de datos para realizar la práctica.</p>
+<p>Instala, como mínimo, las aplicaciones:</p>
+<ul>
+<li><strong>Contactos</strong></li>
+<li><strong>Ventas</strong></li>
+</ul>
+<h3 id="evidencia-3-odoo-funcionando">Evidencia 3 — Odoo funcionando</h3>
+<p>Adjunta una captura de Odoo donde se pueda comprobar que la instalación funciona correctamente y que has accedido a la base de datos creada.</p>
+<hr />
+<h1 id="4-activacion-del-modo-desarrollador">4. Activación del modo desarrollador</h1>
+<p>Para explorar la estructura interna de Odoo necesitaremos activar el <strong>modo desarrollador</strong>.</p>
+<p>Puedes hacerlo desde:</p>
+<p><strong>Ajustes → Herramientas de desarrollador → Activar modo desarrollador</strong></p>
+<blockquote>
+<p>Dependiendo de la interfaz instalada, la ubicación exacta puede variar.</p>
+</blockquote>
+<p>Una vez activado aparecerán opciones técnicas adicionales.</p>
+<h3 id="evidencia-4-modo-desarrollador">Evidencia 4 — Modo desarrollador</h3>
+<p>Adjunta una captura que permita comprobar que el modo desarrollador está activado.</p>
+<hr />
+<h1 id="5-modelos-de-odoo">5. Modelos de Odoo</h1>
+<p>Odoo utiliza un ORM (<em>Object Relational Mapping</em>). Los objetos de negocio se representan mediante <strong>modelos</strong>.</p>
+<p>Accede a:</p>
+<p><strong>Ajustes → Técnico → Estructura de la base de datos → Modelos</strong></p>
+<p>Localiza los siguientes modelos:</p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Nombre técnico</th>
+<th>Finalidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contacto</td>
+<td><code>res.partner</code></td>
+<td>Clientes, proveedores y contactos</td>
+</tr>
+<tr>
+<td>Usuario</td>
+<td><code>res.users</code></td>
+<td>Usuarios de Odoo</td>
+</tr>
+<tr>
+<td>Producto</td>
+<td><code>product.template</code></td>
+<td>Información general del producto</td>
+</tr>
+<tr>
+<td>Pedido de venta</td>
+<td><code>sale.order</code></td>
+<td>Cabecera de los pedidos de venta</td>
+</tr>
+<tr>
+<td>Línea de pedido</td>
+<td><code>sale.order.line</code></td>
+<td>Productos incluidos en cada pedido</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Investiga</p>
+<p>¿Qué diferencia observas entre el <strong>nombre descriptivo</strong> de un modelo y su <strong>nombre técnico</strong>?</p>
+</div>
+<h3 id="evidencia-5-modelo-respartner">Evidencia 5 — Modelo <code>res.partner</code></h3>
+<p>Busca el modelo:</p>
+<div class="highlight"><pre><span></span><code>res.partner
+</code></pre></div>
+<p>Adjunta una captura de su ficha técnica.</p>
+<p>Localiza dentro del modelo algunos campos como:</p>
+<div class="highlight"><pre><span></span><code>name
+email
+phone
+city
+</code></pre></div>
+<p>Anota el <strong>tipo de dato</strong> de cada uno.</p>
+<hr />
+<h1 id="6-del-modelo-a-la-tabla-postgresql">6. Del modelo a la tabla PostgreSQL</h1>
+<p>Una idea importante de Odoo es la relación entre el ORM y la base de datos.</p>
+<p>Como regla general, el nombre técnico del modelo se transforma en el nombre de la tabla sustituyendo los puntos (<code>.</code>) por guiones bajos (<code>_</code>).</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code>Modelo Odoo        Tabla PostgreSQL
+
+res.partner   →    res_partner
+sale.order    →    sale_order
+sale.order.line →  sale_order_line
+</code></pre></div>
+<p>Entra en PostgreSQL desde el contenedor:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>odoo<span class="w"> </span>-d<span class="w"> </span>NOMBRE_BASE_DATOS
+</code></pre></div>
+<p>Lista las tablas:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">dt</span>
+</code></pre></div>
+<p>Busca algunas tablas:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">dt</span><span class="w"> </span><span class="n">res_partner</span>
+<span class="err">\</span><span class="n">dt</span><span class="w"> </span><span class="n">sale_order</span>
+<span class="err">\</span><span class="n">dt</span><span class="w"> </span><span class="n">sale_order_line</span>
+</code></pre></div>
+<p>Consulta la estructura de una tabla:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">res_partner</span>
+</code></pre></div>
+<p>También puedes realizar una consulta sencilla:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">res_partner</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="evidencia-6-tablas-de-postgresql">Evidencia 6 — Tablas de PostgreSQL</h3>
+<p>Adjunta una captura donde puedan verse al menos estas tablas:</p>
+<div class="highlight"><pre><span></span><code>res_partner
+sale_order
+sale_order_line
+</code></pre></div>
+<h3 id="evidencia-7-relacion-modelotabla">Evidencia 7 — Relación modelo/tabla</h3>
+<p>Adjunta:</p>
+<ol>
+<li>una captura del modelo <code>res.partner</code> desde Odoo;</li>
+<li>una captura de la tabla <code>res_partner</code> desde PostgreSQL.</li>
+</ol>
+<p>Explica brevemente qué relación existe entre ambas.</p>
+<hr />
+<h1 id="7-vistas-de-odoo">7. Vistas de Odoo</h1>
+<p>Un mismo modelo puede mostrarse de diferentes maneras.</p>
+<p>Entre las vistas más habituales encontramos:</p>
+<ul>
+<li><strong>Form</strong>: formulario de un único registro.</li>
+<li><strong>List</strong>: listado de registros.</li>
+<li><strong>Kanban</strong>: tarjetas.</li>
+<li><strong>Search</strong>: filtros y opciones de búsqueda.</li>
+<li><strong>Calendar</strong>: calendario.</li>
+<li><strong>Graph</strong>: representación gráfica.</li>
+<li><strong>Pivot</strong>: análisis mediante tabla dinámica.</li>
+</ul>
+<p>Accede a:</p>
+<p><strong>Ajustes → Técnico → Interfaz de usuario → Vistas</strong></p>
+<p>Busca vistas relacionadas con:</p>
+<div class="highlight"><pre><span></span><code>res.partner
+</code></pre></div>
+<p>Filtra utilizando el campo <strong>Modelo</strong>.</p>
+<h3 id="evidencia-8-vistas-de-respartner">Evidencia 8 — Vistas de <code>res.partner</code></h3>
+<p>Adjunta una captura donde aparezcan varias vistas asociadas al modelo:</p>
+<div class="highlight"><pre><span></span><code>res.partner
+</code></pre></div>
+<p>Identifica al menos:</p>
+<ul>
+<li>una vista de formulario;</li>
+<li>una vista de lista;</li>
+<li>una vista de búsqueda.</li>
+</ul>
+<p>Anota para cada una:</p>
+<ul>
+<li>nombre;</li>
+<li>tipo de vista;</li>
+<li>modelo.</li>
+</ul>
+<hr />
+<h1 id="8-analizando-una-vista-xml">8. Analizando una vista XML</h1>
+<p>Abre una de las vistas de formulario asociadas a <code>res.partner</code>.</p>
+<p>Localiza su definición o arquitectura XML.</p>
+<p>En ella deberías encontrar referencias a campos mediante estructuras similares a:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"name"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"email"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"phone"</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<h3 id="evidencia-9-xml-de-una-vista">Evidencia 9 — XML de una vista</h3>
+<p>Adjunta una captura donde pueda verse parte del XML de una vista de <code>res.partner</code>.</p>
+<p>Selecciona <strong>tres campos</strong> que aparezcan en el XML y comprueba posteriormente que existen en el modelo <code>res.partner</code>.</p>
+<p>Completa:</p>
+<table>
+<thead>
+<tr>
+<th>Campo XML</th>
+<th>¿Existe en el modelo?</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Idea clave</p>
+<p>El <strong>modelo</strong> define los datos y su comportamiento.<br />
+La <strong>vista</strong> determina cómo se presentan esos datos al usuario.</p>
+</div>
+<hr />
+<h1 id="9-investigacion-modulo-de-ventas">9. Investigación: módulo de Ventas</h1>
+<p>Repite parte del proceso con el módulo <strong>Ventas</strong>.</p>
+<p>Localiza:</p>
+<div class="highlight"><pre><span></span><code>sale.order
+sale.order.line
+</code></pre></div>
+<p>Investiga:</p>
+<ol>
+<li>¿Qué representa <code>sale.order</code>?</li>
+<li>¿Qué representa <code>sale.order.line</code>?</li>
+<li>¿Qué relación existe entre ambos?</li>
+<li>Localiza en <code>sale.order</code> el campo relacionado con el cliente.</li>
+<li>Localiza alguna vista de formulario asociada a <code>sale.order</code>.</li>
+<li>Identifica la tabla PostgreSQL correspondiente a cada modelo.</li>
+</ol>
+<h3 id="evidencia-10-pedido-de-venta">Evidencia 10 — Pedido de venta</h3>
+<p>Adjunta una captura del modelo <code>sale.order</code> y otra de una de sus vistas.</p>
+<p>Identifica en la vista al menos <strong>cinco campos</strong> pertenecientes al modelo.</p>
+<hr />
+<h1 id="10-reto-final-seguir-un-dato-de-principio-a-fin">10. Reto final: seguir un dato de principio a fin</h1>
+<p>Crea desde la interfaz de Odoo un nuevo contacto con datos fácilmente identificables.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>Nombre: Cliente Prueba DAM
+Email: dam@example.com
+Ciudad: Puertollano
+</code></pre></div>
+<p>Después:</p>
+<ol>
+<li>Localiza el registro desde <strong>Contactos</strong>.</li>
+<li>Localiza el modelo que gestiona esos datos.</li>
+<li>Identifica la vista que los muestra.</li>
+<li>Accede a PostgreSQL.</li>
+<li>Busca el mismo contacto mediante SQL.</li>
+</ol>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">city</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">res_partner</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Cliente Prueba DAM'</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="evidencia-11-del-navegador-a-postgresql">Evidencia 11 — Del navegador a PostgreSQL</h3>
+<p>Incluye dos capturas:</p>
+<ul>
+<li>contacto visible desde Odoo;</li>
+<li>mismo contacto recuperado mediante SQL.</li>
+</ul>
+<p>Explica el recorrido:</p>
+<div class="highlight"><pre><span></span><code>Interfaz de Odoo
+       ↓
+Vista XML
+       ↓
+Modelo res.partner
+       ↓
+ORM de Odoo
+       ↓
+Tabla res_partner
+       ↓
+PostgreSQL
+</code></pre></div>
+<hr />
+<h1 id="11-conclusiones">11. Conclusiones</h1>
+<p>Responde brevemente:</p>
+<ol>
+<li>¿Qué diferencia existe entre <strong>modelo, vista y tabla</strong>?</li>
+<li>¿Qué función realiza el ORM de Odoo?</li>
+<li>¿Puede un modelo tener varias vistas? Pon un ejemplo.</li>
+<li>¿Por qué no es recomendable modificar directamente las tablas de Odoo mediante SQL?</li>
+<li>¿Dónde desarrollaríamos nuestros propios módulos dentro de la estructura Docker utilizada en clase?</li>
+</ol>
+<hr />
+<h2 id="evidencias-que-debe-contener-la-entrega">Evidencias que debe contener la entrega</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Nº</th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Estructura del proyecto</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Contenedores Odoo/PostgreSQL funcionando</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Acceso a Odoo</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Modo desarrollador</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Modelo <code>res.partner</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Tablas PostgreSQL</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Relación <code>res.partner</code> / <code>res_partner</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Vistas de <code>res.partner</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>XML de una vista</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>Modelo y vista de <code>sale.order</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>Contacto en Odoo y PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Las capturas deben permitir identificar claramente lo que se está demostrando. No se valorarán capturas genéricas que no permitan comprobar la realización del apartado.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
