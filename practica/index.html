@@ -844,227 +844,115 @@ sale.order.line →  sale_order_line
 <span class="k">FROM</span><span class="w"> </span><span class="n">res_partner</span>
 <span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="evidencia-6-tablas-de-postgresql">Evidencia 6 — Tablas de PostgreSQL</h3>
-<p>Adjunta una captura donde puedan verse al menos estas tablas:</p>
-<div class="highlight"><pre><span></span><code>res_partner
-sale_order
-sale_order_line
-</code></pre></div>
-<h3 id="evidencia-7-relacion-modelotabla">Evidencia 7 — Relación modelo/tabla</h3>
-<p>Adjunta:</p>
-<ol>
-<li>una captura del modelo <code>res.partner</code> desde Odoo;</li>
-<li>una captura de la tabla <code>res_partner</code> desde PostgreSQL.</li>
-</ol>
-<p>Explica brevemente qué relación existe entre ambas.</p>
-<hr />
-<h1 id="7-vistas-de-odoo">7. Vistas de Odoo</h1>
-<p>Un mismo modelo puede mostrarse de diferentes maneras.</p>
-<p>Entre las vistas más habituales encontramos:</p>
+<h1 id="7-consultas-sql-sobre-la-base-de-datos-de-odoo">7. Consultas SQL sobre la base de datos de Odoo</h1>
+<p>Una vez identificadas las tablas principales de Odoo, realiza las siguientes consultas sobre la base de datos PostgreSQL.</p>
+<p>En este apartado <strong>todas las consultas deberán relacionar dos o más tablas mediante <code>JOIN</code></strong>.</p>
+<p>Antes de comenzar, asegúrate de disponer en Odoo de suficientes datos de prueba:</p>
 <ul>
-<li><strong>Form</strong>: formulario de un único registro.</li>
-<li><strong>List</strong>: listado de registros.</li>
-<li><strong>Kanban</strong>: tarjetas.</li>
-<li><strong>Search</strong>: filtros y opciones de búsqueda.</li>
-<li><strong>Calendar</strong>: calendario.</li>
-<li><strong>Graph</strong>: representación gráfica.</li>
-<li><strong>Pivot</strong>: análisis mediante tabla dinámica.</li>
+<li>Varios clientes.</li>
+<li>Al menos 5 productos.</li>
+<li>Al menos 3 pedidos de venta.</li>
+<li>Pedidos pertenecientes a diferentes clientes.</li>
+<li>Al menos 2 productos diferentes en cada pedido.</li>
 </ul>
-<p>Accede a:</p>
-<p><strong>Ajustes → Técnico → Interfaz de usuario → Vistas</strong></p>
-<p>Busca vistas relacionadas con:</p>
-<div class="highlight"><pre><span></span><code>res.partner
-</code></pre></div>
-<p>Filtra utilizando el campo <strong>Modelo</strong>.</p>
-<h3 id="evidencia-8-vistas-de-respartner">Evidencia 8 — Vistas de <code>res.partner</code></h3>
-<p>Adjunta una captura donde aparezcan varias vistas asociadas al modelo:</p>
-<div class="highlight"><pre><span></span><code>res.partner
-</code></pre></div>
-<p>Identifica al menos:</p>
+<p>Los datos deberán crearse desde la interfaz de Odoo. Sobre PostgreSQL únicamente se realizarán consultas <code>SELECT</code>.</p>
+<h2 id="71-pedidos-y-clientes">7.1. Pedidos y clientes</h2>
+<p>Obtén un listado de los pedidos de venta mostrando:</p>
 <ul>
-<li>una vista de formulario;</li>
-<li>una vista de lista;</li>
-<li>una vista de búsqueda.</li>
+<li>Número del pedido.</li>
+<li>Nombre del cliente.</li>
+<li>Fecha del pedido.</li>
+<li>Estado.</li>
+<li>Importe total.</li>
 </ul>
-<p>Anota para cada una:</p>
+<p>Ordena los pedidos desde el más reciente al más antiguo.</p>
+<hr />
+<h2 id="72-productos-incluidos-en-cada-pedido">7.2. Productos incluidos en cada pedido</h2>
+<p>Obtén un listado que permita conocer el contenido de cada pedido.</p>
+<p>Muestra:</p>
 <ul>
-<li>nombre;</li>
-<li>tipo de vista;</li>
-<li>modelo.</li>
+<li>Número del pedido.</li>
+<li>Nombre del cliente.</li>
+<li>Nombre del producto.</li>
+<li>Cantidad.</li>
+<li>Precio unitario.</li>
+<li>Subtotal de la línea.</li>
 </ul>
+<p>Ordena el resultado por número de pedido.</p>
 <hr />
-<h1 id="8-analizando-una-vista-xml">8. Analizando una vista XML</h1>
-<p>Abre una de las vistas de formulario asociadas a <code>res.partner</code>.</p>
-<p>Localiza su definición o arquitectura XML.</p>
-<p>En ella deberías encontrar referencias a campos mediante estructuras similares a:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"name"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"email"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"phone"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-<h3 id="evidencia-9-xml-de-una-vista">Evidencia 9 — XML de una vista</h3>
-<p>Adjunta una captura donde pueda verse parte del XML de una vista de <code>res.partner</code>.</p>
-<p>Selecciona <strong>tres campos</strong> que aparezcan en el XML y comprueba posteriormente que existen en el modelo <code>res.partner</code>.</p>
-<p>Completa:</p>
-<table>
-<thead>
-<tr>
-<th>Campo XML</th>
-<th>¿Existe en el modelo?</th>
-<th>Tipo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Idea clave</p>
-<p>El <strong>modelo</strong> define los datos y su comportamiento.<br />
-La <strong>vista</strong> determina cómo se presentan esos datos al usuario.</p>
-</div>
-<hr />
-<h1 id="9-investigacion-modulo-de-ventas">9. Investigación: módulo de Ventas</h1>
-<p>Repite parte del proceso con el módulo <strong>Ventas</strong>.</p>
-<p>Localiza:</p>
-<div class="highlight"><pre><span></span><code>sale.order
-sale.order.line
-</code></pre></div>
-<p>Investiga:</p>
-<ol>
-<li>¿Qué representa <code>sale.order</code>?</li>
-<li>¿Qué representa <code>sale.order.line</code>?</li>
-<li>¿Qué relación existe entre ambos?</li>
-<li>Localiza en <code>sale.order</code> el campo relacionado con el cliente.</li>
-<li>Localiza alguna vista de formulario asociada a <code>sale.order</code>.</li>
-<li>Identifica la tabla PostgreSQL correspondiente a cada modelo.</li>
-</ol>
-<h3 id="evidencia-10-pedido-de-venta">Evidencia 10 — Pedido de venta</h3>
-<p>Adjunta una captura del modelo <code>sale.order</code> y otra de una de sus vistas.</p>
-<p>Identifica en la vista al menos <strong>cinco campos</strong> pertenecientes al modelo.</p>
-<hr />
-<h1 id="10-reto-final-seguir-un-dato-de-principio-a-fin">10. Reto final: seguir un dato de principio a fin</h1>
-<p>Crea desde la interfaz de Odoo un nuevo contacto con datos fácilmente identificables.</p>
-<p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code>Nombre: Cliente Prueba DAM
-Email: dam@example.com
-Ciudad: Puertollano
-</code></pre></div>
-<p>Después:</p>
-<ol>
-<li>Localiza el registro desde <strong>Contactos</strong>.</li>
-<li>Localiza el modelo que gestiona esos datos.</li>
-<li>Identifica la vista que los muestra.</li>
-<li>Accede a PostgreSQL.</li>
-<li>Busca el mismo contacto mediante SQL.</li>
-</ol>
-<p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">city</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">res_partner</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Cliente Prueba DAM'</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="evidencia-11-del-navegador-a-postgresql">Evidencia 11 — Del navegador a PostgreSQL</h3>
-<p>Incluye dos capturas:</p>
+<h2 id="73-pedidos-realizados-por-cada-cliente">7.3. Pedidos realizados por cada cliente</h2>
+<p>Obtén un resumen de actividad comercial por cliente.</p>
+<p>Muestra:</p>
 <ul>
-<li>contacto visible desde Odoo;</li>
-<li>mismo contacto recuperado mediante SQL.</li>
+<li>Nombre del cliente.</li>
+<li>Número de pedidos realizados.</li>
+<li>Importe total acumulado.</li>
 </ul>
-<p>Explica el recorrido:</p>
-<div class="highlight"><pre><span></span><code>Interfaz de Odoo
-       ↓
-Vista XML
-       ↓
-Modelo res.partner
-       ↓
-ORM de Odoo
-       ↓
-Tabla res_partner
-       ↓
-PostgreSQL
-</code></pre></div>
+<p>Ordena los clientes de mayor a menor importe total.</p>
 <hr />
-<h1 id="11-conclusiones">11. Conclusiones</h1>
-<p>Responde brevemente:</p>
+<h2 id="74-productos-mas-vendidos">7.4. Productos más vendidos</h2>
+<p>Obtén un listado de productos mostrando:</p>
+<ul>
+<li>Nombre del producto.</li>
+<li>Número de pedidos diferentes en los que aparece.</li>
+<li>Número total de unidades vendidas.</li>
+<li>Importe total generado por ese producto.</li>
+</ul>
+<p>Ordena el resultado desde el producto que más unidades ha vendido hasta el que menos.</p>
+<hr />
+<h2 id="75-productos-comprados-por-cada-cliente">7.5. Productos comprados por cada cliente</h2>
+<p>Obtén un listado que permita conocer qué productos ha comprado cada cliente.</p>
+<p>Muestra:</p>
+<ul>
+<li>Nombre del cliente.</li>
+<li>Nombre del producto.</li>
+<li>Número total de unidades compradas.</li>
+<li>Importe total gastado en ese producto.</li>
+</ul>
+<p>Ordena el resultado primero por cliente y después por importe gastado de mayor a menor.</p>
+<hr />
+<h2 id="76-clientes-y-comerciales">7.6. Clientes y comerciales</h2>
+<p>Obtén un listado de los pedidos junto con el comercial responsable.</p>
+<p>Muestra:</p>
+<ul>
+<li>Número del pedido.</li>
+<li>Nombre del cliente.</li>
+<li>Comercial o usuario responsable.</li>
+<li>Fecha del pedido.</li>
+<li>Importe total.</li>
+</ul>
+<hr />
+<h2 id="77-ventas-realizadas-por-cada-comercial">7.7. Ventas realizadas por cada comercial</h2>
+<p>Genera un resumen de las ventas gestionadas por cada comercial.</p>
+<p>Muestra:</p>
+<ul>
+<li>Nombre del comercial.</li>
+<li>Número de pedidos gestionados.</li>
+<li>Número de clientes diferentes atendidos.</li>
+<li>Importe total de los pedidos gestionados.</li>
+</ul>
+<p>Ordena los comerciales de mayor a menor importe total.</p>
+<hr />
+<h2 id="78-informe-general-de-ventas">7.8. Informe general de ventas</h2>
+<p>Realiza una consulta que genere un informe de ventas agrupado por cliente.</p>
+<p>Para cada cliente muestra:</p>
+<ul>
+<li>Nombre del cliente.</li>
+<li>Número de pedidos.</li>
+<li>Número de productos diferentes comprados.</li>
+<li>Número total de unidades compradas.</li>
+<li>Importe total de las ventas.</li>
+<li>Importe medio de sus pedidos.</li>
+</ul>
+<p>Ordena el resultado desde el cliente que más importe total ha generado hasta el que menos.</p>
+<hr />
+<h2 id="evidencias">Evidencias</h2>
+<p>Para cada una de las 8 consultas deberás incluir:</p>
 <ol>
-<li>¿Qué diferencia existe entre <strong>modelo, vista y tabla</strong>?</li>
-<li>¿Qué función realiza el ORM de Odoo?</li>
-<li>¿Puede un modelo tener varias vistas? Pon un ejemplo.</li>
-<li>¿Por qué no es recomendable modificar directamente las tablas de Odoo mediante SQL?</li>
-<li>¿Dónde desarrollaríamos nuestros propios módulos dentro de la estructura Docker utilizada en clase?</li>
+<li>La sentencia SQL utilizada.</li>
+<li>Una captura de pgAdmin donde pueda verse la consulta y el resultado.</li>
+<li>Una breve explicación de las tablas relacionadas mediante <code>JOIN</code>.</li>
 </ol>
-<hr />
-<h2 id="evidencias-que-debe-contener-la-entrega">Evidencias que debe contener la entrega</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Nº</th>
-<th>Evidencia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">1</td>
-<td>Estructura del proyecto</td>
-</tr>
-<tr>
-<td style="text-align: right;">2</td>
-<td>Contenedores Odoo/PostgreSQL funcionando</td>
-</tr>
-<tr>
-<td style="text-align: right;">3</td>
-<td>Acceso a Odoo</td>
-</tr>
-<tr>
-<td style="text-align: right;">4</td>
-<td>Modo desarrollador</td>
-</tr>
-<tr>
-<td style="text-align: right;">5</td>
-<td>Modelo <code>res.partner</code></td>
-</tr>
-<tr>
-<td style="text-align: right;">6</td>
-<td>Tablas PostgreSQL</td>
-</tr>
-<tr>
-<td style="text-align: right;">7</td>
-<td>Relación <code>res.partner</code> / <code>res_partner</code></td>
-</tr>
-<tr>
-<td style="text-align: right;">8</td>
-<td>Vistas de <code>res.partner</code></td>
-</tr>
-<tr>
-<td style="text-align: right;">9</td>
-<td>XML de una vista</td>
-</tr>
-<tr>
-<td style="text-align: right;">10</td>
-<td>Modelo y vista de <code>sale.order</code></td>
-</tr>
-<tr>
-<td style="text-align: right;">11</td>
-<td>Contacto en Odoo y PostgreSQL</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="admonition-title">Importante</p>
-<p>Las capturas deben permitir identificar claramente lo que se está demostrando. No se valorarán capturas genéricas que no permitan comprobar la realización del apartado.</p>
-</div>
 
 
 
