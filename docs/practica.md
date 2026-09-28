@@ -206,217 +206,148 @@ FROM res_partner
 LIMIT 10;
 ```
 
-### Evidencia 6 — Tablas de PostgreSQL
+# 7. Consultas SQL sobre la base de datos de Odoo
 
-Adjunta una captura donde puedan verse al menos estas tablas:
+Una vez identificadas las tablas principales de Odoo, realiza las siguientes consultas sobre la base de datos PostgreSQL.
 
-```text
-res_partner
-sale_order
-sale_order_line
-```
+En este apartado **todas las consultas deberán relacionar dos o más tablas mediante `JOIN`**.
 
-### Evidencia 7 — Relación modelo/tabla
+Antes de comenzar, asegúrate de disponer en Odoo de suficientes datos de prueba:
 
-Adjunta:
+- Varios clientes.
+- Al menos 5 productos.
+- Al menos 3 pedidos de venta.
+- Pedidos pertenecientes a diferentes clientes.
+- Al menos 2 productos diferentes en cada pedido.
 
-1. una captura del modelo `res.partner` desde Odoo;
-2. una captura de la tabla `res_partner` desde PostgreSQL.
+Los datos deberán crearse desde la interfaz de Odoo. Sobre PostgreSQL únicamente se realizarán consultas `SELECT`.
 
-Explica brevemente qué relación existe entre ambas.
+## 7.1. Pedidos y clientes
 
----
+Obtén un listado de los pedidos de venta mostrando:
 
-# 7. Vistas de Odoo
+- Número del pedido.
+- Nombre del cliente.
+- Fecha del pedido.
+- Estado.
+- Importe total.
 
-Un mismo modelo puede mostrarse de diferentes maneras.
-
-Entre las vistas más habituales encontramos:
-
-- **Form**: formulario de un único registro.
-- **List**: listado de registros.
-- **Kanban**: tarjetas.
-- **Search**: filtros y opciones de búsqueda.
-- **Calendar**: calendario.
-- **Graph**: representación gráfica.
-- **Pivot**: análisis mediante tabla dinámica.
-
-Accede a:
-
-**Ajustes → Técnico → Interfaz de usuario → Vistas**
-
-Busca vistas relacionadas con:
-
-```text
-res.partner
-```
-
-Filtra utilizando el campo **Modelo**.
-
-### Evidencia 8 — Vistas de `res.partner`
-
-Adjunta una captura donde aparezcan varias vistas asociadas al modelo:
-
-```text
-res.partner
-```
-
-Identifica al menos:
-
-- una vista de formulario;
-- una vista de lista;
-- una vista de búsqueda.
-
-Anota para cada una:
-
-- nombre;
-- tipo de vista;
-- modelo.
+Ordena los pedidos desde el más reciente al más antiguo.
 
 ---
 
-# 8. Analizando una vista XML
+## 7.2. Productos incluidos en cada pedido
 
-Abre una de las vistas de formulario asociadas a `res.partner`.
+Obtén un listado que permita conocer el contenido de cada pedido.
 
-Localiza su definición o arquitectura XML.
+Muestra:
 
-En ella deberías encontrar referencias a campos mediante estructuras similares a:
+- Número del pedido.
+- Nombre del cliente.
+- Nombre del producto.
+- Cantidad.
+- Precio unitario.
+- Subtotal de la línea.
 
-```xml
-<field name="name"/>
-<field name="email"/>
-<field name="phone"/>
-```
-
-### Evidencia 9 — XML de una vista
-
-Adjunta una captura donde pueda verse parte del XML de una vista de `res.partner`.
-
-Selecciona **tres campos** que aparezcan en el XML y comprueba posteriormente que existen en el modelo `res.partner`.
-
-Completa:
-
-| Campo XML | ¿Existe en el modelo? | Tipo |
-|---|---|---|
-| | | |
-| | | |
-| | | |
-
-!!! tip "Idea clave"
-    El **modelo** define los datos y su comportamiento.  
-    La **vista** determina cómo se presentan esos datos al usuario.
+Ordena el resultado por número de pedido.
 
 ---
 
-# 9. Investigación: módulo de Ventas
+## 7.3. Pedidos realizados por cada cliente
 
-Repite parte del proceso con el módulo **Ventas**.
+Obtén un resumen de actividad comercial por cliente.
 
-Localiza:
+Muestra:
 
-```text
-sale.order
-sale.order.line
-```
+- Nombre del cliente.
+- Número de pedidos realizados.
+- Importe total acumulado.
 
-Investiga:
-
-1. ¿Qué representa `sale.order`?
-2. ¿Qué representa `sale.order.line`?
-3. ¿Qué relación existe entre ambos?
-4. Localiza en `sale.order` el campo relacionado con el cliente.
-5. Localiza alguna vista de formulario asociada a `sale.order`.
-6. Identifica la tabla PostgreSQL correspondiente a cada modelo.
-
-### Evidencia 10 — Pedido de venta
-
-Adjunta una captura del modelo `sale.order` y otra de una de sus vistas.
-
-Identifica en la vista al menos **cinco campos** pertenecientes al modelo.
+Ordena los clientes de mayor a menor importe total.
 
 ---
 
-# 10. Reto final: seguir un dato de principio a fin
+## 7.4. Productos más vendidos
 
-Crea desde la interfaz de Odoo un nuevo contacto con datos fácilmente identificables.
+Obtén un listado de productos mostrando:
 
-Por ejemplo:
+- Nombre del producto.
+- Número de pedidos diferentes en los que aparece.
+- Número total de unidades vendidas.
+- Importe total generado por ese producto.
 
-```text
-Nombre: Cliente Prueba DAM
-Email: dam@example.com
-Ciudad: Puertollano
-```
-
-Después:
-
-1. Localiza el registro desde **Contactos**.
-2. Localiza el modelo que gestiona esos datos.
-3. Identifica la vista que los muestra.
-4. Accede a PostgreSQL.
-5. Busca el mismo contacto mediante SQL.
-
-Por ejemplo:
-
-```sql
-SELECT id, name, email, city
-FROM res_partner
-WHERE name = 'Cliente Prueba DAM';
-```
-
-### Evidencia 11 — Del navegador a PostgreSQL
-
-Incluye dos capturas:
-
-- contacto visible desde Odoo;
-- mismo contacto recuperado mediante SQL.
-
-Explica el recorrido:
-
-```text
-Interfaz de Odoo
-       ↓
-Vista XML
-       ↓
-Modelo res.partner
-       ↓
-ORM de Odoo
-       ↓
-Tabla res_partner
-       ↓
-PostgreSQL
-```
+Ordena el resultado desde el producto que más unidades ha vendido hasta el que menos.
 
 ---
 
-# 11. Conclusiones
+## 7.5. Productos comprados por cada cliente
 
-Responde brevemente:
+Obtén un listado que permita conocer qué productos ha comprado cada cliente.
 
-1. ¿Qué diferencia existe entre **modelo, vista y tabla**?
-2. ¿Qué función realiza el ORM de Odoo?
-3. ¿Puede un modelo tener varias vistas? Pon un ejemplo.
-4. ¿Por qué no es recomendable modificar directamente las tablas de Odoo mediante SQL?
-5. ¿Dónde desarrollaríamos nuestros propios módulos dentro de la estructura Docker utilizada en clase?
+Muestra:
+
+- Nombre del cliente.
+- Nombre del producto.
+- Número total de unidades compradas.
+- Importe total gastado en ese producto.
+
+Ordena el resultado primero por cliente y después por importe gastado de mayor a menor.
 
 ---
 
-## Evidencias que debe contener la entrega
+## 7.6. Clientes y comerciales
 
-| Nº | Evidencia |
-|---:|---|
-| 1 | Estructura del proyecto |
-| 2 | Contenedores Odoo/PostgreSQL funcionando |
-| 3 | Acceso a Odoo |
-| 4 | Modo desarrollador |
-| 5 | Modelo `res.partner` |
-| 6 | Tablas PostgreSQL |
-| 7 | Relación `res.partner` / `res_partner` |
-| 8 | Vistas de `res.partner` |
-| 9 | XML de una vista |
-| 10 | Modelo y vista de `sale.order` |
-| 11 | Contacto en Odoo y PostgreSQL |
+Obtén un listado de los pedidos junto con el comercial responsable.
 
-!!! warning "Importante"
-    Las capturas deben permitir identificar claramente lo que se está demostrando. No se valorarán capturas genéricas que no permitan comprobar la realización del apartado.
+Muestra:
+
+- Número del pedido.
+- Nombre del cliente.
+- Comercial o usuario responsable.
+- Fecha del pedido.
+- Importe total.
+
+---
+
+## 7.7. Ventas realizadas por cada comercial
+
+Genera un resumen de las ventas gestionadas por cada comercial.
+
+Muestra:
+
+- Nombre del comercial.
+- Número de pedidos gestionados.
+- Número de clientes diferentes atendidos.
+- Importe total de los pedidos gestionados.
+
+Ordena los comerciales de mayor a menor importe total.
+
+---
+
+## 7.8. Informe general de ventas
+
+Realiza una consulta que genere un informe de ventas agrupado por cliente.
+
+Para cada cliente muestra:
+
+- Nombre del cliente.
+- Número de pedidos.
+- Número de productos diferentes comprados.
+- Número total de unidades compradas.
+- Importe total de las ventas.
+- Importe medio de sus pedidos.
+
+Ordena el resultado desde el cliente que más importe total ha generado hasta el que menos.
+
+---
+
+## Evidencias
+
+Para cada una de las 8 consultas deberás incluir:
+
+1. La sentencia SQL utilizada.
+2. Una captura de pgAdmin donde pueda verse la consulta y el resultado.
+3. Una breve explicación de las tablas relacionadas mediante `JOIN`.
+
+
+
