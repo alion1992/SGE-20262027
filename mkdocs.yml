@@ -12,4 +12,5 @@ nav:
   - 5. Puesta en marcha: puesta-en-marcha.md
   - 6. Mantenimiento: mantenimiento.md
   - 7. Práctica: practica.md
+  - 8. SalesForce: sales.md
 markdown_extensions: [admonition, attr_list, pymdownx.details, pymdownx.superfences, pymdownx.highlight]

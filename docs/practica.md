@@ -341,6 +341,52 @@ Ordena el resultado desde el cliente que más importe total ha generado hasta el
 
 ---
 
+## 8. Resultado final de la instalación SalesForce
+
+Para finalizar la práctica debemos comprobar que **Salesforce CLI está correctamente conectado con nuestra organización Developer Edition**.
+
+Ejecutamos:
+
+```bash
+sf org list
+```
+
+Nuestra organización deberá aparecer con estado:
+
+```text
+Connected
+```
+
+Además, cada alumno deberá haber configurado su organización utilizando como alias:
+
+```text
+SGE-SU_NOMBRE
+```
+
+Por ejemplo, para un alumno llamado Carlos:
+
+```text
+SGE-CARLOS
+```
+
+El resultado deberá ser similar al siguiente:
+
+```text
+Alias          Username                         Org Id             Status
+SGE-CARLOS     usuario@agentforce.com           00Dxxxxxxxxxxxx    Connected
+```
+Por ejemplo:
+
+![alt text](image.png)
+
+!!! success "Objetivo final"
+    La práctica estará correctamente realizada cuando el alumno ejecute `sf org list` y aparezca su organización con:
+
+    - **Alias:** `SGE-SU_NOMBRE`
+    - **Status:** `Connected`
+
+    Se deberá realizar una **captura de pantalla del terminal** donde pueda comprobarse este resultado.
+
 ## Evidencias
 
 Para cada una de las 8 consultas deberás incluir:
