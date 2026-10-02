@@ -12,6 +12,8 @@
         <link rel="prev" href="../mantenimiento/">
       
       
+        <link rel="next" href="../sales/">
+      
       
         
       
@@ -545,6 +547,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. SalesForce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -946,6 +975,35 @@ sale.order.line →  sale_order_line
 </ul>
 <p>Ordena el resultado desde el cliente que más importe total ha generado hasta el que menos.</p>
 <hr />
+<h2 id="8-resultado-final-de-la-instalacion-salesforce">8. Resultado final de la instalación SalesForce</h2>
+<p>Para finalizar la práctica debemos comprobar que <strong>Salesforce CLI está correctamente conectado con nuestra organización Developer Edition</strong>.</p>
+<p>Ejecutamos:</p>
+<div class="highlight"><pre><span></span><code>sf<span class="w"> </span>org<span class="w"> </span>list
+</code></pre></div>
+<p>Nuestra organización deberá aparecer con estado:</p>
+<div class="highlight"><pre><span></span><code>Connected
+</code></pre></div>
+<p>Además, cada alumno deberá haber configurado su organización utilizando como alias:</p>
+<div class="highlight"><pre><span></span><code>SGE-SU_NOMBRE
+</code></pre></div>
+<p>Por ejemplo, para un alumno llamado Carlos:</p>
+<div class="highlight"><pre><span></span><code>SGE-CARLOS
+</code></pre></div>
+<p>El resultado deberá ser similar al siguiente:</p>
+<p><div class="highlight"><pre><span></span><code>Alias          Username                         Org Id             Status
+SGE-CARLOS     usuario@agentforce.com           00Dxxxxxxxxxxxx    Connected
+</code></pre></div>
+Por ejemplo:</p>
+<p><img alt="alt text" src="../image.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Objetivo final</p>
+<p>La práctica estará correctamente realizada cuando el alumno ejecute <code>sf org list</code> y aparezca su organización con:</p>
+<ul>
+<li><strong>Alias:</strong> <code>SGE-SU_NOMBRE</code></li>
+<li><strong>Status:</strong> <code>Connected</code></li>
+</ul>
+<p>Se deberá realizar una <strong>captura de pantalla del terminal</strong> donde pueda comprobarse este resultado.</p>
+</div>
 <h2 id="evidencias">Evidencias</h2>
 <p>Para cada una de las 8 consultas deberás incluir:</p>
 <ol>
