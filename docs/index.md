@@ -1,17 +1,53 @@
 # Sistemas de Gestión Empresarial
 
-Apuntes del módulo **Sistemas de Gestión Empresarial**.
+Apuntes, actividades y prácticas del módulo profesional **Sistemas de Gestión Empresarial**.
 
-## Unidades didácticas
+Durante el curso trabajaremos con diferentes herramientas utilizadas para la implantación, configuración, explotación y adaptación de sistemas de gestión empresarial.
 
-### UD2 - ERP/CRM
+---
 
-Implantación, configuración y administración de sistemas ERP/CRM.
+## 📚 Unidades didácticas
 
-[Acceder a la UD2](ud2/index.md){ .md-button .md-button--primary }
+### 🏢 UD2. Sistemas ERP-CRM
 
-### UD3 - Crystal Reports
+En esta unidad trabajaremos con la **implantación, configuración y administración de sistemas ERP y CRM**.
 
-Diseño y generación de informes empresariales con SAP Crystal Reports.
+Utilizaremos principalmente:
 
-[Acceder a la UD3](ud3/index.md){ .md-button .md-button--primary }
+- Docker y Docker Compose.
+- PostgreSQL.
+- Odoo.
+- Salesforce.
+- Configuración de sistemas ERP/CRM.
+- Administración y mantenimiento.
+
+[➡️ Acceder a la UD2](ud2/index.md){ .md-button .md-button--primary }
+
+---
+
+### 📊 UD3. Generación de informes con JasperReports
+
+En esta unidad aprenderemos a transformar la información almacenada en los sistemas de gestión empresarial en **informes profesionales**.
+
+Trabajaremos con:
+
+- JasperReports.
+- Jaspersoft Studio.
+- PostgreSQL.
+- Conexiones JDBC.
+- Consultas SQL.
+- Campos, parámetros y variables.
+- Agrupaciones y totales.
+- Expresiones y campos calculados.
+- Gráficos.
+- Subinformes.
+- Exportación a PDF.
+- Integración con aplicaciones.
+
+[➡️ Acceder a la UD3](ud3/index.md){ .md-button .md-button--primary }
+
+---
+
+## 🎯 Objetivo del módulo
+
+El objetivo es conocer las principales herramientas utilizadas en los sistemas de gestión empresarial y aprender a **implantarlos, configurarlos, consultar su información y adaptarlos a las necesidades de una organización**.

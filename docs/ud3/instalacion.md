@@ -1,55 +1,20 @@
-# 2. Instalación
+# 2. Instalación de Jaspersoft Studio
 
-Para trabajar con Crystal Reports utilizaremos **Visual Studio 2022** y **SAP Crystal Reports Developer for Microsoft Visual Studio**.
+Descargaremos **Jaspersoft Studio** desde el portal oficial.
 
-## 1. Visual Studio 2022
+!!! warning
+    No confundir Jaspersoft Studio con JasperReports Server. Para comenzar solo necesitamos Studio.
 
-Instalamos Visual Studio 2022 Community.
+## Windows
+1. Descargar la distribución de Windows.
+2. Instalar o descomprimir el paquete.
+3. Iniciar Jaspersoft Studio.
 
-Durante la instalación seleccionamos la carga de trabajo:
+## macOS
+1. Descargar la distribución para macOS.
+2. Abrir el paquete.
+3. Instalar la aplicación.
+4. Ejecutar Jaspersoft Studio.
 
-> **Desarrollo de escritorio de .NET**
-
-## 2. Crystal Reports
-
-Una vez instalado Visual Studio, instalamos **SAP Crystal Reports Developer for Microsoft Visual Studio** compatible con Visual Studio 2022.
-
-!!! warning "Importante"
-    Para diseñar informes necesitamos el paquete **Developer**, no únicamente el Runtime.
-
-## 3. Developer y Runtime
-
-### Developer
-
-Integra el diseñador de Crystal Reports dentro de Visual Studio.
-
-```text
-Visual Studio
-      +
-Crystal Reports Developer
-      ↓
-Diseñador de informes
-```
-
-### Runtime
-
-Se utiliza principalmente en equipos que deben ejecutar una aplicación que ya utiliza Crystal Reports.
-
-## 4. Orden recomendado
-
-```text
-1. Visual Studio 2022
-        ↓
-2. Desarrollo de escritorio de .NET
-        ↓
-3. Crystal Reports Developer
-        ↓
-4. Reiniciar Visual Studio
-```
-
-## 5. Comprobación
-
-Abrimos Visual Studio y comprobamos posteriormente que podemos agregar un elemento de tipo **Crystal Report (.rpt)**.
-
-!!! success
-    Si aparece la opción **Crystal Report**, la integración se ha realizado correctamente.
+## Entorno
+Trabajaremos con Project Explorer, Palette, Outline, Properties, Data Adapters y el diseñador.

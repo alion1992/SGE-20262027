@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud3-generacion-de-informes-con-crystal-reports" class="md-skip">
+        <a href="#ud3-generacion-de-informes-con-jasperreports" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -559,7 +559,7 @@
   <span class="md-ellipsis">
     
   
-    UD3 - Crystal Reports
+    UD3 - JasperReports
   
 
     
@@ -575,7 +575,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    UD3 - Crystal Reports
+    UD3 - JasperReports
   
 
           </label>
@@ -658,17 +658,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#herramientas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Herramientas
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -692,7 +681,7 @@
   <span class="md-ellipsis">
     
   
-    1. Introducción a Crystal Reports
+    1. Introducción a JasperReports
   
 
     
@@ -776,7 +765,7 @@
   <span class="md-ellipsis">
     
   
-    4. Diseñador de informes
+    4. Diseñador
   
 
     
@@ -797,14 +786,42 @@
   
   
     <li class="md-nav__item">
-      <a href="origenes-datos/" class="md-nav__link">
+      <a href="base-datos/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Orígenes de datos
+    5. Base de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conexion-postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Conexión PostgreSQL
   
 
     
@@ -832,7 +849,35 @@
   <span class="md-ellipsis">
     
   
-    6. Primer informe
+    7. Primer informe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="campos-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Campos, parámetros y variables
   
 
     
@@ -860,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    7. Agrupaciones y totales
+    9. Agrupaciones y totales
   
 
     
@@ -881,14 +926,14 @@
   
   
     <li class="md-nav__item">
-      <a href="parametros/" class="md-nav__link">
+      <a href="parametros-filtros/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Filtros y parámetros
+    10. Parámetros y filtros
   
 
     
@@ -909,14 +954,14 @@
   
   
     <li class="md-nav__item">
-      <a href="formulas/" class="md-nav__link">
+      <a href="expresiones/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    9. Fórmulas
+    11. Expresiones
   
 
     
@@ -944,7 +989,7 @@
   <span class="md-ellipsis">
     
   
-    10. Gráficos
+    12. Gráficos
   
 
     
@@ -972,7 +1017,7 @@
   <span class="md-ellipsis">
     
   
-    11. Subinformes
+    13. Subinformes
   
 
     
@@ -993,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="dotnet/" class="md-nav__link">
+      <a href="exportacion/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    12. Integración con .NET
+    14. Exportación
   
 
     
@@ -1021,14 +1066,42 @@
   
   
     <li class="md-nav__item">
-      <a href="practica/" class="md-nav__link">
+      <a href="integracion/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    13. Práctica final
+    15. Integración con aplicaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="practica-final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Práctica final
   
 
     
@@ -1086,17 +1159,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#herramientas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Herramientas
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1114,49 +1176,22 @@
 
 
 
-<h1 id="ud3-generacion-de-informes-con-crystal-reports">📊 UD3 - Generación de informes con Crystal Reports</h1>
-<p>En esta unidad aprenderemos a diseñar y generar <strong>informes profesionales</strong> utilizando <strong>SAP Crystal Reports</strong>.</p>
+<h1 id="ud3-generacion-de-informes-con-jasperreports">📊 UD3 - Generación de informes con JasperReports</h1>
+<p>Aprenderemos <strong>reporting empresarial</strong> con Jaspersoft Studio y PostgreSQL.</p>
 <h2 id="objetivos">Objetivos</h2>
 <ul>
-<li>Comprender la utilidad de los sistemas de reporting.</li>
-<li>Diseñar informes a partir de datos empresariales.</li>
-<li>Utilizar agrupaciones, totales, filtros y parámetros.</li>
-<li>Crear fórmulas y gráficos.</li>
-<li>Trabajar con subinformes.</li>
+<li>Diseñar informes profesionales.</li>
+<li>Conectar con PostgreSQL mediante JDBC.</li>
+<li>Trabajar con SQL, campos, parámetros y variables.</li>
+<li>Crear agrupaciones, totales, gráficos y subinformes.</li>
 <li>Exportar informes.</li>
-<li>Integrar, al final de la unidad, informes en una aplicación .NET.</li>
 </ul>
+<div class="highlight"><pre><span></span><code>PostgreSQL → Jaspersoft Studio → JRXML → JasperReports → PDF / Excel / HTML
+</code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Enfoque</p>
-<p>Al principio nos centraremos exclusivamente en el <strong>diseño de informes</strong>. La programación con .NET se introducirá más adelante.</p>
+<p class="admonition-title">Info</p>
+<p>Comenzaremos sin programación. La integración con aplicaciones se estudiará al final.</p>
 </div>
-<h2 id="herramientas">Herramientas</h2>
-<table>
-<thead>
-<tr>
-<th>Herramienta</th>
-<th>Utilidad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Visual Studio 2022</td>
-<td>Entorno de trabajo</td>
-</tr>
-<tr>
-<td>SAP Crystal Reports for Visual Studio</td>
-<td>Diseño de informes</td>
-</tr>
-<tr>
-<td>PostgreSQL</td>
-<td>Base de datos</td>
-</tr>
-<tr>
-<td>pgAdmin</td>
-<td>Administración de PostgreSQL</td>
-</tr>
-</tbody>
-</table>
 
 
 

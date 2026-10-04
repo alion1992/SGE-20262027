@@ -1,20 +1,15 @@
-# 10. Gráficos
+# 12. Gráficos
 
-Crystal Reports permite representar gráficamente la información.
+Podemos crear gráficos de barras, sectores o líneas.
 
-Podemos utilizar, entre otros:
-
-- Gráficos de barras.
-- Gráficos circulares.
-- Gráficos de líneas.
-
-## Ejemplo
-
-Podemos representar la facturación obtenida por cada categoría de productos.
+```sql
+SELECT c.nombre, SUM(dp.cantidad * dp.precio_unitario) AS facturacion
+FROM clientes c
+JOIN pedidos p ON p.cliente_id=c.id
+JOIN detalle_pedido dp ON dp.pedido_id=p.id
+GROUP BY c.id,c.nombre
+ORDER BY facturacion DESC;
+```
 
 ## Práctica
-
-Crear un informe de ventas que incluya un gráfico con la facturación por categoría.
-
-!!! tip
-    Un gráfico debe complementar al informe, no sustituir los datos necesarios para interpretarlo.
+Mostrar la facturación por cliente mediante tabla y gráfico de barras.

@@ -1,49 +1,18 @@
-# 1. Introducción a Crystal Reports
+# 1. Introducción a JasperReports
 
-## ¿Qué es un informe?
+Un **informe** transforma datos empresariales en información organizada y presentable.
 
-Un **informe** es una representación organizada de información obtenida normalmente de una base de datos.
+## JasperReports
+Es un motor de generación de informes basado en Java. Permite usar bases de datos, SQL, parámetros, variables, agrupaciones, gráficos y subinformes.
 
-Una empresa puede necesitar conocer:
+## Jaspersoft Studio
+Es el diseñador visual que utilizaremos.
 
-- Clientes registrados.
-- Productos disponibles.
-- Stock actual.
-- Ventas realizadas.
-- Facturación.
-- Productos más vendidos.
-
-## ¿Qué es Crystal Reports?
-
-**SAP Crystal Reports** es una herramienta especializada en la creación de informes a partir de diferentes fuentes de datos.
-
-Permite:
-
-- Mostrar información de bases de datos.
-- Ordenar y filtrar registros.
-- Agrupar información.
-- Calcular totales y subtotales.
-- Utilizar parámetros.
-- Crear fórmulas.
-- Representar datos mediante gráficos.
-- Crear subinformes.
-- Exportar resultados.
-
-## Archivos `.rpt`
-
-Los informes se almacenan en archivos con extensión:
+## JRXML
+Los diseños se guardan como `.jrxml`:
 
 ```text
-.rpt
+productos.jrxml
+clientes.jrxml
+ventas.jrxml
 ```
-
-Por ejemplo:
-
-```text
-productos.rpt
-clientes.rpt
-ventas.rpt
-```
-
-!!! note
-    Un `.rpt` contiene la definición del informe: campos, secciones, formatos, fórmulas, parámetros, agrupaciones, etc.

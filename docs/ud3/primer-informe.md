@@ -1,31 +1,13 @@
-# 6. Primer informe
+# 7. Primer informe con datos
 
-Crearemos un informe de productos con los siguientes campos:
+Crear `productos.jrxml` con:
 
-- Identificador.
-- Nombre.
-- Categoría.
-- Precio.
-- Stock.
-
-## Resultado esperado
-
-```text
-INFORME DE PRODUCTOS
-
-Producto                 Categoría       Precio     Stock
----------------------------------------------------------
-Monitor 27"              Monitores       249,99 €     12
-Teclado mecánico         Periféricos      89,99 €      5
-Ratón inalámbrico        Periféricos      39,99 €     20
+```sql
+SELECT p.id, p.nombre, c.nombre AS categoria, p.precio, p.stock
+FROM productos p
+JOIN categorias c ON c.id=p.categoria_id
+ORDER BY p.nombre;
 ```
 
-## Trabajo a realizar
-
-1. Crear `Productos.rpt`.
-2. Conectarlo con la base de datos.
-3. Añadir los campos necesarios.
-4. Crear los encabezados.
-5. Ajustar tamaños y alineación.
-6. Aplicar formato monetario al precio.
-7. Visualizar el resultado.
+## Actividad
+Añadir los campos, crear encabezados, formatear el precio y comprobar el resultado con **Preview**.
