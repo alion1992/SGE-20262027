@@ -1,16 +1,47 @@
-site_name: SGE - UD2 Odoo con Docker
+site_name: Sistemas de Gestión Empresarial
+
 theme:
   name: material
   language: es
-  features: [navigation.sections, navigation.top, content.code.copy, toc.follow]
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+
 nav:
   - Inicio: index.md
-  - 1. Docker: docker.md
-  - 2. Estructura: estructura.md
-  - 3. Docker Compose: docker-compose.md
-  - 4. Odoo.conf: odoo-conf.md
-  - 5. Puesta en marcha: puesta-en-marcha.md
-  - 6. Mantenimiento: mantenimiento.md
-  - 7. Práctica: practica.md
-  - 8. SalesForce: sales.md
-markdown_extensions: [admonition, attr_list, pymdownx.details, pymdownx.superfences, pymdownx.highlight]
+
+  - UD2 - ERP/CRM:
+      - Introducción: ud2/index.md
+      - 1. Docker: ud2/docker.md
+      - 2. Estructura: ud2/estructura.md
+      - 3. Docker Compose: ud2/docker-compose.md
+      - 4. Odoo.conf: ud2/odoo-conf.md
+      - 5. Puesta en marcha: ud2/puesta-en-marcha.md
+      - 6. Mantenimiento: ud2/mantenimiento.md
+      - 7. Práctica: ud2/practica.md
+      - 8. Salesforce: ud2/sales.md
+
+  - UD3 - Crystal Reports:
+      - Introducción: ud3/index.md
+      - 1. Introducción a Crystal Reports: ud3/introduccion.md
+      - 2. Instalación: ud3/instalacion.md
+      - 3. Puesta en marcha: ud3/puesta-en-marcha.md
+      - 4. Diseñador de informes: ud3/disenador.md
+      - 5. Orígenes de datos: ud3/origenes-datos.md
+      - 6. Primer informe: ud3/primer-informe.md
+      - 7. Agrupaciones y totales: ud3/agrupaciones.md
+      - 8. Filtros y parámetros: ud3/parametros.md
+      - 9. Fórmulas: ud3/formulas.md
+      - 10. Gráficos: ud3/graficos.md
+      - 11. Subinformes: ud3/subinformes.md
+      - 12. Integración con .NET: ud3/dotnet.md
+      - 13. Práctica final: ud3/practica.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
