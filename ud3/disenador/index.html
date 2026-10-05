@@ -760,6 +760,94 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Header
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Header
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Footer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Footer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-genera-un-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo se genera un informe?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejercicio" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1149,6 +1237,94 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Title
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Header
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Header
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Footer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Footer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-genera-un-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo se genera un informe?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejercicio" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1178,17 +1354,249 @@
 
 <h1 id="4-disenador-de-informes">4. Diseñador de informes</h1>
 <p>Los informes se dividen en bandas:</p>
-<div class="highlight"><pre><span></span><code>Title
-Page Header
-Column Header
-Detail
-Column Footer
-Page Footer
-Summary
-</code></pre></div>
+<p><img alt="alt text" src="../image-4.png" /></p>
 <p><strong>Detail</strong> se repite por cada registro. <strong>Title</strong> aparece al inicio y <strong>Summary</strong> es útil para totales y gráficos.</p>
+<p><img alt="Bandas de un informe en Jaspersoft Studio" src="../image-4.png" /></p>
+<p>Los informes de JasperReports se organizan mediante <strong>bandas (Bands)</strong>. Cada banda representa una zona del informe y tiene un comportamiento diferente.</p>
+<p>La principal diferencia entre ellas es <strong>cuándo y cuántas veces aparecen</strong> al generar el informe.</p>
+<table>
+<thead>
+<tr>
+<th>Banda</th>
+<th>¿Cuándo aparece?</th>
+<th>¿Para qué se utiliza?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Title</strong></td>
+<td>Una vez, al principio</td>
+<td>Título, logotipo y datos generales del informe</td>
+</tr>
+<tr>
+<td><strong>Page Header</strong></td>
+<td>Al comienzo de cada página</td>
+<td>Cabecera general de la página</td>
+</tr>
+<tr>
+<td><strong>Column Header</strong></td>
+<td>Antes de los registros</td>
+<td>Nombres de las columnas</td>
+</tr>
+<tr>
+<td><strong>Detail</strong></td>
+<td>Una vez por cada registro</td>
+<td>Datos obtenidos de la base de datos</td>
+</tr>
+<tr>
+<td><strong>Column Footer</strong></td>
+<td>Al finalizar las columnas</td>
+<td>Totales o información asociada a las columnas</td>
+</tr>
+<tr>
+<td><strong>Page Footer</strong></td>
+<td>Al final de cada página</td>
+<td>Número de página, fecha, etc.</td>
+</tr>
+<tr>
+<td><strong>Summary</strong></td>
+<td>Una vez, al final</td>
+<td>Totales generales, estadísticas y gráficos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="title">Title</h2>
+<p>La banda <strong>Title</strong> aparece normalmente <strong>una sola vez al comienzo del informe</strong>.</p>
+<p>Se utiliza para mostrar información general como:</p>
+<ul>
+<li>Título del informe.</li>
+<li>Nombre de la empresa.</li>
+<li>Logotipo.</li>
+<li>Fecha de generación.</li>
+<li>Descripción del informe.</li>
+</ul>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>========================================
+         INFORME DE PRODUCTOS
+       Informática Puertollano
+========================================
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>No debemos utilizar <code>Title</code> para los nombres de las columnas, ya que esta banda solamente aparece al comienzo del informe.</p>
+</div>
+<hr />
+<h2 id="page-header">Page Header</h2>
+<p>La banda <strong>Page Header</strong> aparece en la parte superior de <strong>cada página</strong>.</p>
+<p>Se utiliza para información que queremos repetir cuando comienza una nueva página.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>Informática Puertollano S.L.        INFORME DE PRODUCTOS
+---------------------------------------------------------
+</code></pre></div>
+<p>Si nuestro informe tiene 5 páginas, el <code>Page Header</code> aparecerá <strong>5 veces</strong>.</p>
+<hr />
+<h2 id="column-header">Column Header</h2>
+<p>La banda <strong>Column Header</strong> contiene normalmente los <strong>nombres de las columnas</strong> correspondientes a los datos que mostraremos posteriormente.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>Producto              Categoría          Precio      Stock
+----------------------------------------------------------
+</code></pre></div>
+<p>Debajo de estos encabezados aparecerán los registros de la banda <code>Detail</code>.</p>
+<hr />
+<h2 id="detail">Detail</h2>
+<p>La banda <strong>Detail</strong> es una de las más importantes de JasperReports.</p>
+<p>Se repite automáticamente <strong>una vez por cada registro obtenido de la base de datos</strong>.</p>
+<p>Supongamos que ejecutamos:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="n">stock</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">productos</span><span class="p">;</span>
+</code></pre></div>
+<p>Y PostgreSQL devuelve 4 productos.</p>
+<p>JasperReports procesará la banda <code>Detail</code> cuatro veces:</p>
+<div class="highlight"><pre><span></span><code>Detail → Monitor
+Detail → Teclado
+Detail → Ratón
+Detail → SSD
+</code></pre></div>
+<p>En esta banda colocaremos normalmente los <strong>Fields</strong> procedentes de la consulta:</p>
+<div class="highlight"><pre><span></span><code>$F{nombre}
+$F{precio}
+$F{stock}
+</code></pre></div>
+<p>El diseño podría ser:</p>
+<div class="highlight"><pre><span></span><code>COLUMN HEADER
+
+Producto             Precio       Stock
+----------------------------------------
+
+DETAIL
+
+$F{nombre}            $F{precio}   $F{stock}
+</code></pre></div>
+<p>Y al generar el informe obtendríamos:</p>
+<div class="highlight"><pre><span></span><code>Producto             Precio       Stock
+----------------------------------------
+Monitor              249,99 €       12
+Teclado               89,99 €        5
+Ratón                  39,99 €       20
+SSD                    79,99 €        8
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Nosotros diseñamos <strong>una única banda <code>Detail</code></strong>. JasperReports se encarga de repetirla automáticamente para cada registro.</p>
+</div>
+<hr />
+<h2 id="column-footer">Column Footer</h2>
+<p>La banda <strong>Column Footer</strong> aparece al finalizar las columnas de una página.</p>
+<p>Puede utilizarse para:</p>
+<ul>
+<li>Totales de columna.</li>
+<li>Información adicional.</li>
+<li>Elementos relacionados con el contenido de las columnas.</li>
+</ul>
+<p>En informes sencillos es habitual que esta banda permanezca vacía.</p>
+<hr />
+<h2 id="page-footer">Page Footer</h2>
+<p>La banda <strong>Page Footer</strong> aparece en la parte inferior de <strong>cada página</strong>.</p>
+<p>Se utiliza habitualmente para:</p>
+<ul>
+<li>Número de página.</li>
+<li>Fecha de impresión.</li>
+<li>Nombre del informe.</li>
+<li>Información corporativa.</li>
+</ul>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>----------------------------------------------------------
+SGE - Curso 2026/2027                     Página 2 de 4
+</code></pre></div>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>La banda <strong>Summary</strong> aparece normalmente <strong>una sola vez al final del informe</strong>.</p>
+<p>Se utiliza para mostrar información resumen:</p>
+<ul>
+<li>Número total de registros.</li>
+<li>Sumas.</li>
+<li>Promedios.</li>
+<li>Estadísticas.</li>
+<li>Totales generales.</li>
+<li>Gráficos.</li>
+</ul>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code>RESUMEN
+--------------------------------
+
+Número de productos:           125
+Precio medio:              105,32 €
+Valor total del stock:  34.521,25 €
+</code></pre></div>
+<p>También es una zona apropiada para colocar un <strong>gráfico resumen</strong>.</p>
+<hr />
+<h2 id="como-se-genera-un-informe">¿Cómo se genera un informe?</h2>
+<p>Supongamos que tenemos <strong>100 productos</strong> y el informe ocupa 3 páginas.</p>
+<p>JasperReports procesaría las bandas aproximadamente de esta manera:</p>
+<div class="highlight"><pre><span></span><code>TITLE                              ← una vez
+
+PAGE HEADER                        ← página 1
+COLUMN HEADER
+
+DETAIL → producto 1
+DETAIL → producto 2
+DETAIL → producto 3
+...
+DETAIL → producto 40
+
+COLUMN FOOTER
+PAGE FOOTER
+
+
+PAGE HEADER                        ← página 2
+COLUMN HEADER
+
+DETAIL → producto 41
+...
+DETAIL → producto 80
+
+COLUMN FOOTER
+PAGE FOOTER
+
+
+PAGE HEADER                        ← página 3
+COLUMN HEADER
+
+DETAIL → producto 81
+...
+DETAIL → producto 100
+
+COLUMN FOOTER
+PAGE FOOTER
+
+SUMMARY                            ← una vez
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Idea fundamental</p>
+<p><strong>Title</strong> presenta el informe.</p>
+<p><strong>Page Header y Page Footer</strong> se repiten en cada página.</p>
+<p><strong>Column Header</strong> identifica las columnas.</p>
+<p><strong>Detail</strong> se repite por cada registro obtenido de la base de datos.</p>
+<p><strong>Summary</strong> muestra el resumen final.</p>
+</div>
+<hr />
 <h2 id="ejercicio">Ejercicio</h2>
-<p>Crear <code>prueba.jrxml</code> con título, columnas Producto/Precio/Stock y pie <code>SGE - Curso 2026/2027</code>.</p>
+<p>Crea un informe llamado:</p>
+<div class="highlight"><pre><span></span><code>prueba.jrxml
+</code></pre></div>
+<p>Configura las bandas para obtener:</p>
+<ul>
+<li>En <strong>Title</strong>: <code>MI PRIMER INFORME</code>.</li>
+<li>En <strong>Page Header</strong>: <code>Sistema de Gestión Empresarial</code>.</li>
+<li>En <strong>Column Header</strong>: <code>Producto</code>, <code>Precio</code> y <code>Stock</code>.</li>
+<li>En <strong>Page Footer</strong>: <code>SGE - Curso 2026/2027</code>.</li>
+<li>En <strong>Summary</strong>: <code>Fin del informe</code>.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Comprueba</p>
+<p>Ejecuta la vista <strong>Preview</strong> y observa qué elementos aparecen una sola vez y cuáles se repiten en cada página.</p>
+</div>
 
 
 
