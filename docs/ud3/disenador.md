@@ -6,7 +6,6 @@ Los informes se dividen en bandas:
 
 **Detail** se repite por cada registro. **Title** aparece al inicio y **Summary** es útil para totales y gráficos.
 
-![Bandas de un informe en Jaspersoft Studio](image-4.png)
 
 Los informes de JasperReports se organizan mediante **bandas (Bands)**. Cada banda representa una zona del informe y tiene un comportamiento diferente.
 

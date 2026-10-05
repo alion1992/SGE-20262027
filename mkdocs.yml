@@ -26,18 +26,18 @@ nav:
       - 2. Instalación: ud3/instalacion.md
       - 3. Puesta en marcha: ud3/puesta-en-marcha.md
       - 4. Diseñador: ud3/disenador.md
-      - 5. Base de datos: ud3/base-datos.md
-      - 6. Conexión PostgreSQL: ud3/conexion-postgresql.md
-      - 7. Primer informe: ud3/primer-informe.md
-      - 8. Campos, parámetros y variables: ud3/campos-variables.md
-      - 9. Agrupaciones y totales: ud3/agrupaciones.md
-      - 10. Parámetros y filtros: ud3/parametros-filtros.md
-      - 11. Expresiones: ud3/expresiones.md
-      - 12. Gráficos: ud3/graficos.md
-      - 13. Subinformes: ud3/subinformes.md
-      - 14. Exportación: ud3/exportacion.md
-      - 15. Integración con aplicaciones: ud3/integracion.md
-      - 16. Práctica final: ud3/practica-final.md
+      #- 5. Base de datos: ud3/base-datos.md
+      #- 6. Conexión PostgreSQL: ud3/conexion-postgresql.md
+      #- 7. Primer informe: ud3/primer-informe.md
+      #- 8. Campos, parámetros y variables: ud3/campos-variables.md
+      #- 9. Agrupaciones y totales: ud3/agrupaciones.md
+      #- 10. Parámetros y filtros: ud3/parametros-filtros.md
+      #- 11. Expresiones: ud3/expresiones.md
+      #- 12. Gráficos: ud3/graficos.md
+      #- 13. Subinformes: ud3/subinformes.md
+      #- 14. Exportación: ud3/exportacion.md
+      #- 15. Integración con aplicaciones: ud3/integracion.md
+      #- 16. Práctica final: ud3/practica-final.md
 
 markdown_extensions:
   - admonition
