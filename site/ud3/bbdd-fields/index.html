@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../instalacion/">
+        <link rel="prev" href="../disenador/">
       
-      
-        <link rel="next" href="../disenador/">
       
       
         
@@ -23,7 +21,7 @@
     
     
       
-        <title>3. Puesta en marcha - Sistemas de Gestión Empresarial</title>
+        <title>5. Base de datos y Fields - Sistemas de Gestión Empresarial</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-puesta-en-marcha" class="md-skip">
+        <a href="#uso-de-campos-de-postgresql-en-jaspersoft-studio" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. Puesta en marcha
+              5. Base de datos y Fields
             
           </span>
         </div>
@@ -669,37 +667,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3. Puesta en marcha
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../puesta-en-marcha/" class="md-nav__link">
         
   
   
@@ -715,37 +686,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vistas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vistas
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -783,10 +723,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../bbdd-fields/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de datos y Fields
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -802,6 +769,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conectar-jaspersoft-studio-con-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Conectar Jaspersoft Studio con PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-crear-una-consulta-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Crear una consulta SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-donde-aparecen-los-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ¿Dónde aparecen los campos?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-colocar-los-campos-en-el-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Colocar los campos en el diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Colocar los campos en el diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-del-resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo del resultado esperado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-previsualizar-el-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Previsualizar el informe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-diferencias-entre-fields-parameters-y-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Diferencias entre Fields, Parameters y Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dar-formato-a-los-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Dar formato a los valores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-resumen-del-proceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Resumen del proceso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -841,10 +955,126 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vistas" class="md-nav__link">
+  <a href="#1-objetivo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vistas
+        1. Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conectar-jaspersoft-studio-con-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Conectar Jaspersoft Studio con PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-crear-una-consulta-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Crear una consulta SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-donde-aparecen-los-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ¿Dónde aparecen los campos?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-colocar-los-campos-en-el-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Colocar los campos en el diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Colocar los campos en el diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-del-resultado-esperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo del resultado esperado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-previsualizar-el-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Previsualizar el informe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-diferencias-entre-fields-parameters-y-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Diferencias entre Fields, Parameters y Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dar-formato-a-los-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Dar formato a los valores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-resumen-del-proceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Resumen del proceso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes
       
     </span>
   </a>
@@ -868,21 +1098,183 @@
 
 
 
-<h1 id="3-puesta-en-marcha">3. Puesta en marcha</h1>
-<p>Creamos el proyecto:</p>
-<div class="highlight"><pre><span></span><code>SGE-JasperReports
-</code></pre></div>
-<p>Creamos un nuevo <strong>Jasper Report</strong> llamado <code>primer-informe.jrxml</code>.</p>
-<p><img alt="alt text" src="../image-2.png" /></p>
-<p><img alt="alt text" src="../image-3.png" /></p>
-<h2 id="vistas">Vistas</h2>
-<ul>
-<li><strong>Design</strong>: diseño visual.</li>
-<li><strong>Source</strong>: JRXML.</li>
-<li><strong>Preview</strong>: resultado.</li>
+<h1 id="uso-de-campos-de-postgresql-en-jaspersoft-studio">Uso de campos de PostgreSQL en Jaspersoft Studio</h1>
+<h2 id="1-objetivo">1. Objetivo</h2>
+<p>Aprender a conectar un informe de <strong>Jaspersoft Studio</strong> con una base de
+datos PostgreSQL, ejecutar una consulta SQL y utilizar los campos
+obtenidos para mostrar información en el informe.</p>
+<h2 id="2-conectar-jaspersoft-studio-con-postgresql">2. Conectar Jaspersoft Studio con PostgreSQL</h2>
+<p>Jaspersoft Studio puede conectarse a PostgreSQL mediante un adaptador de
+datos JDBC.</p>
+<ol>
+<li>Abre <strong>Repository Explorer</strong>.</li>
+<li>Haz clic con el botón derecho sobre <strong>Data Adapters</strong> y selecciona
+    <strong>Create Data Adapter</strong>.</li>
+<li>Elige <strong>Database JDBC Connection</strong>.</li>
+<li>Introduce los datos de conexión:<ul>
+<li><strong>JDBC Driver:</strong> PostgreSQL.</li>
+<li><strong>JDBC URL:</strong> <code>jdbc:postgresql://localhost:5432/mi_base_datos</code></li>
+<li><strong>Username:</strong> el usuario de PostgreSQL.</li>
+<li><strong>Password:</strong> la contraseña.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>DESIGN → SOURCE → PREVIEW
+</li>
+<li>Pulsa <strong>Test</strong> para comprobar la conexión y guarda el adaptador.</li>
+</ol>
+<blockquote>
+<p>Sustituye <code>localhost</code> por la dirección del servidor si PostgreSQL está
+en otro equipo, y <code>mi_base_datos</code> por el nombre real de la base de
+datos. El puerto habitual de PostgreSQL es <code>5432</code>.</p>
+</blockquote>
+<p><strong>Captura de referencia:</strong> <a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/data-adapters/data-adapters-jdbc-connection/">Configuración de una conexión JDBC en la
+documentación
+oficial</a>.</p>
+<h2 id="3-crear-una-consulta-sql">3. Crear una consulta SQL</h2>
+<p>Crea un informe nuevo o abre uno existente. En las propiedades del
+informe, abre el editor de consultas (<em>Dataset and Query Dialog</em>) y
+selecciona el adaptador de PostgreSQL.</p>
+<p>Por ejemplo, utilizaremos una tabla llamada <code>productos</code> con los campos
+<code>nombre</code>, <code>precio</code> y <code>stock</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="n">stock</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">productos</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
 </code></pre></div>
+<p>La consulta obtiene los productos que tienen existencias y los ordena
+alfabéticamente.</p>
+<p>Después de escribir la consulta:</p>
+<ol>
+<li>Pulsa <strong>Read Fields</strong> para que Jaspersoft Studio detecte los campos
+    devueltos por el <code>SELECT</code>.</li>
+<li>Comprueba que aparecen <code>nombre</code>, <code>precio</code> y <code>stock</code>.</li>
+<li>Pulsa <strong>OK</strong> para volver al diseñador.</li>
+</ol>
+<p><strong>Capturas de referencia:</strong> - <a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/simple-report/reports-add-delete-elements/">Editor de consultas y botón Read Fields:
+documentación
+oficial</a>. -
+<a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/data-adapters/data-adapters-jdbc-connection/">Guía oficial de adaptadores
+JDBC</a>.</p>
+<h2 id="4-donde-aparecen-los-campos">4. ¿Dónde aparecen los campos?</h2>
+<p>En el panel <strong>Outline</strong>, despliega el apartado <strong>Fields</strong>. Allí
+aparecerán los campos detectados a partir de la consulta.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><code>nombre</code></li>
+<li><code>precio</code></li>
+<li><code>stock</code></li>
+</ul>
+<p>Jaspersoft Studio representa cada campo mediante una expresión. En el
+informe se utilizan así:</p>
+<hr />
+<p>Expresión                           Contenido</p>
+<hr />
+<p><code>$F{nombre}</code>                        El nombre del producto de la fila
+                                      actual.</p>
+<p><code>$F{precio}</code>                        El precio del producto de la fila
+                                      actual.</p>
+<p><code>$F{stock}</code>                         Las unidades disponibles del
+                                      producto de la fila actual.</p>
+<hr />
+<p><code>$F{...}</code> significa <strong>Field</strong> (campo). No hay que escribir manualmente
+el valor que devuelve la base de datos: JasperReports lo recupera al
+ejecutar la consulta.</p>
+<h2 id="5-colocar-los-campos-en-el-diseno">5. Colocar los campos en el diseño</h2>
+<p>La pestaña <strong>Design</strong> contiene bandas horizontales. Para crear un
+listado sencillo, utilizaremos dos:</p>
+<ul>
+<li><strong>Column Header:</strong> encabezados de las columnas. Se muestra el texto
+    fijo <code>Nombre</code>, <code>Precio</code> y <code>Stock</code>.</li>
+<li><strong>Detail:</strong> datos de cada registro. Esta banda se repite una vez por
+    cada fila que devuelve la consulta.</li>
+</ul>
+<p>Pasos:</p>
+<ol>
+<li>Localiza <code>nombre</code>, <code>precio</code> y <code>stock</code> en <strong>Outline &gt; Fields</strong>.</li>
+<li>Arrastra cada campo desde <strong>Fields</strong> hasta la banda <strong>Detail</strong>.</li>
+<li>Añade elementos de texto estático en <strong>Column Header</strong> y escribe
+    <code>Nombre</code>, <code>Precio</code> y <code>Stock</code>.</li>
+<li>Coloca cada encabezado encima del campo correspondiente y ajusta el
+    ancho de los elementos.</li>
+</ol>
+<p>Al arrastrar un campo a <strong>Detail</strong>, Jaspersoft Studio crea un elemento
+de texto con la expresión correspondiente, por ejemplo <code>$F{nombre}</code>.</p>
+<p><strong>Captura de referencia:</strong> <a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/simple-report/reports-add-delete-elements/">Añadir campos al informe y arrastrarlos al
+diseño</a>.</p>
+<h3 id="ejemplo-del-resultado-esperado">Ejemplo del resultado esperado</h3>
+<p>Si la consulta devuelve estos datos:</p>
+<p>nombre      precio   stock</p>
+<hr />
+<p>Teclado      25,50      10
+  Ratón        15,00      20
+  Monitor     180,00       5</p>
+<p>El informe mostrará un listado parecido a este:</p>
+<p>Nombre      Precio   Stock</p>
+<hr />
+<p>Teclado      25,50      10
+  Ratón        15,00      20
+  Monitor     180,00       5</p>
+<p>No es necesario programar un bucle: <strong>la banda Detail se repite
+automáticamente para cada registro</strong>.</p>
+<h2 id="6-previsualizar-el-informe">6. Previsualizar el informe</h2>
+<p>Pulsa <strong>Preview</strong>. Jaspersoft Studio ejecutará la consulta utilizando el
+adaptador seleccionado y mostrará los resultados en el informe.</p>
+<p>Si no aparecen datos, comprueba: - Que la conexión JDBC funciona. - Que
+el nombre de la tabla y de los campos es correcto. - Que la consulta
+devuelve registros. - Que has pulsado <strong>Read Fields</strong> después de
+modificar la consulta. - Que el informe utiliza el adaptador de datos
+correcto.</p>
+<h2 id="7-diferencias-entre-fields-parameters-y-variables">7. Diferencias entre Fields, Parameters y Variables</h2>
+<p>En JasperReports se utilizan expresiones especiales para acceder a
+distintos tipos de información:</p>
+<hr />
+<p>Expresión               Significado             Ejemplo</p>
+<hr />
+<p><code>$F{nombre}</code>            <strong>Field:</strong> dato         Nombre de un producto.
+                          procedente de la      <br />
+                          consulta o del origen <br />
+                          de datos.               </p>
+<p><code>$P{categoria}</code>         <strong>Parameter:</strong> valor de Categoría elegida por
+                          entrada que recibe el   el usuario.
+                          informe.                </p>
+<p><code>$V{REPORT_COUNT}</code>      <strong>Variable:</strong> valor     Contador de registros
+                          calculado o mantenido   procesados.
+                          durante la generación <br />
+                          del informe.            </p>
+<hr />
+<p>Los parámetros se pueden utilizar, por ejemplo, para filtrar los
+resultados. Para hacerlo hay que crear el parámetro y utilizarlo
+correctamente en la consulta SQL.</p>
+<h2 id="8-dar-formato-a-los-valores">8. Dar formato a los valores</h2>
+<p>Se puede modificar el aspecto de cada campo desde el panel
+<strong>Properties</strong>.</p>
+<p>Por ejemplo, para mostrar un precio con dos decimales: 1. Selecciona el
+campo <code>$F{precio}</code> en el diseñador. 2. Busca las propiedades del
+elemento de texto. 3. Configura el formato numérico (<em>Pattern</em>) adecuado
+para el tipo de dato.</p>
+<p>También puedes cambiar la fuente, alineación, bordes, tamaño y otras
+propiedades visuales.</p>
+<p><strong>Referencia:</strong> <a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/elements/elements-advanced-properties/">Documentación oficial sobre propiedades de los
+elementos</a>.</p>
+<h2 id="9-resumen-del-proceso">9. Resumen del proceso</h2>
+<ol>
+<li>Crear el adaptador JDBC para PostgreSQL.</li>
+<li>Escribir la consulta SQL.</li>
+<li>Pulsar <strong>Read Fields</strong>.</li>
+<li>Localizar los campos en <strong>Outline &gt; Fields</strong>.</li>
+<li>Arrastrar los campos a la banda <strong>Detail</strong>.</li>
+<li>Añadir encabezados en <strong>Column Header</strong>.</li>
+<li>Ejecutar <strong>Preview</strong> para comprobar el resultado.</li>
+</ol>
+<h2 id="fuentes">Fuentes</h2>
+<ul>
+<li><a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/data-adapters/data-adapters-jdbc-connection/">Jaspersoft Studio: conexiones
+    JDBC</a></li>
+<li><a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/simple-report/reports-add-delete-elements/">Jaspersoft Studio: añadir campos a un
+    informe</a></li>
+<li><a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/design-tab/">Jaspersoft Studio: diseño y
+    bandas</a></li>
+<li><a href="https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/fields/fields-intro/">Jaspersoft Studio:
+    Fields</a></li>
+</ul>
 
 
 
