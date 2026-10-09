@@ -26,9 +26,7 @@ datos JDBC.
 > en otro equipo, y `mi_base_datos` por el nombre real de la base de
 > datos. El puerto habitual de PostgreSQL es `5432`.
 
-**Captura de referencia:** [Configuración de una conexión JDBC en la
-documentación
-oficial](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/data-adapters/data-adapters-jdbc-connection/).
+![alt text](image-5.png)
 
 ## 3. Crear una consulta SQL
 
@@ -56,11 +54,7 @@ Después de escribir la consulta:
 2.  Comprueba que aparecen `nombre`, `precio` y `stock`.
 3.  Pulsa **OK** para volver al diseñador.
 
-**Capturas de referencia:** - [Editor de consultas y botón Read Fields:
-documentación
-oficial](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/simple-report/reports-add-delete-elements/). -
-[Guía oficial de adaptadores
-JDBC](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/data-adapters/data-adapters-jdbc-connection/).
+![alt text](image-6.png)
 
 ## 4. ¿Dónde aparecen los campos?
 
@@ -115,8 +109,7 @@ Pasos:
 Al arrastrar un campo a **Detail**, Jaspersoft Studio crea un elemento
 de texto con la expresión correspondiente, por ejemplo `$F{nombre}`.
 
-**Captura de referencia:** [Añadir campos al informe y arrastrarlos al
-diseño](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/simple-report/reports-add-delete-elements/).
+
 
 ### Ejemplo del resultado esperado
 
@@ -190,8 +183,7 @@ para el tipo de dato.
 También puedes cambiar la fuente, alineación, bordes, tamaño y otras
 propiedades visuales.
 
-**Referencia:** [Documentación oficial sobre propiedades de los
-elementos](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/elements/elements-advanced-properties/).
+
 
 ## 9. Resumen del proceso
 
