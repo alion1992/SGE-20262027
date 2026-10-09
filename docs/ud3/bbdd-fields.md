@@ -205,3 +205,8 @@ propiedades visuales.
     bandas](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/design-tab/)
 -   [Jaspersoft Studio:
     Fields](https://docs.actian.com/jaspersoft/jaspersoft-studio/user-guide/fields/fields-intro/)
+
+## Ejercicio Clase
+
+Replicar la siguiente plantilla parametrizada para que podamos consultar las multas de todos las personas.
+![alt text](image-7.png)
