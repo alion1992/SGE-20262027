@@ -27,7 +27,7 @@ nav:
       - 3. Puesta en marcha: ud3/puesta-en-marcha.md
       - 4. Diseñador: ud3/disenador.md
       - 5. Base de datos y Fields: ud3/bbdd-fields.md
-      #- 6. Conexión PostgreSQL: ud3/conexion-postgresql.md
+      - 6. Agrupaciones: ud3/agrupacioness.md
       #- 7. Primer informe: ud3/primer-informe.md
       #- 8. Campos, parámetros y variables: ud3/campos-variables.md
       #- 9. Agrupaciones y totales: ud3/agrupaciones.md

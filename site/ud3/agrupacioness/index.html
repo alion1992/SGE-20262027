@@ -1,0 +1,1177 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bbdd-fields/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. Agrupaciones - Sistemas de Gestión Empresarial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-agrupaciones-y-subtotales-en-jasperreports" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Sistemas de Gestión Empresarial" class="md-header__button md-logo" aria-label="Sistemas de Gestión Empresarial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistemas de Gestión Empresarial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Agrupaciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sistemas de Gestión Empresarial" class="md-nav__button md-logo" aria-label="Sistemas de Gestión Empresarial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sistemas de Gestión Empresarial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - ERP/CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 - ERP/CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/odoo-conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Odoo.conf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/puesta-en-marcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Puesta en marcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/mantenimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Mantenimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/practica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ud2/sales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Salesforce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - JasperReports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3 - JasperReports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción a JasperReports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puesta-en-marcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Puesta en marcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disenador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Diseñador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bbdd-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de datos y Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Agrupaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-agrupaciones-y-subtotales-en-jasperreports">6. Agrupaciones y subtotales en JasperReports</h1>
+<h1 id="pasar-el-siguiente-script">PASAR EL SIGUIENTE SCRIPT</h1>
+<p><a href="../script.sql">Descargar script SQL</a></p>
+<h2 id="61-que-es-una-agrupacion">6.1. ¿Qué es una agrupación?</h2>
+<p>Una agrupación permite organizar los registros de un informe según el valor de uno de sus campos.</p>
+<p>Por ejemplo, tenemos una base de datos con tres tablas:</p>
+<ul>
+<li><code>centro</code>: almacena los centros.</li>
+<li><code>departamento</code>: almacena los departamentos de cada centro.</li>
+<li><code>gastos</code>: almacena los gastos de cada departamento.</li>
+</ul>
+<p>Queremos mostrar los gastos organizados por departamento. En lugar de mostrar una lista continua, el informe separará los gastos de cada departamento y podrá mostrar el subtotal correspondiente.</p>
+<p>Ejemplo de resultado:</p>
+<div class="highlight"><pre><span></span><code>Departamento: Administración
+    Material de oficina       180,50 €
+    Impresora                 320,00 €
+    Subtotal departamento:    500,50 €
+
+Departamento: Informática
+    Compra de ordenadores   2.400,00 €
+    Licencias de software     650,00 €
+    Subtotal departamento:  3.050,00 €
+
+TOTAL GENERAL:              5.000,00 €
+</code></pre></div>
+<p><em>Los importes son ilustrativos; el resultado real dependerá de los registros de la base de datos.</em></p>
+<h2 id="62-consulta-sql-del-informe">6.2. Consulta SQL del informe</h2>
+<p>Para crear el informe, necesitamos una consulta que devuelva los gastos junto con el nombre del centro y del departamento.</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">centro</span><span class="p">,</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">id_departamento</span><span class="p">,</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">departamento</span><span class="p">,</span>
+<span class="w">    </span><span class="k">g</span><span class="p">.</span><span class="n">concepto</span><span class="p">,</span>
+<span class="w">    </span><span class="k">g</span><span class="p">.</span><span class="n">fecha</span><span class="p">,</span>
+<span class="w">    </span><span class="k">g</span><span class="p">.</span><span class="n">importe</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">clase</span><span class="p">.</span><span class="n">gastos</span><span class="w"> </span><span class="k">g</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">clase</span><span class="p">.</span><span class="n">departamento</span><span class="w"> </span><span class="n">d</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">id_departamento</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id_departamento</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">clase</span><span class="p">.</span><span class="n">centro</span><span class="w"> </span><span class="k">c</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id_centro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id_centro</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">id_departamento</span><span class="p">,</span>
+<span class="w">    </span><span class="k">g</span><span class="p">.</span><span class="n">fecha</span><span class="p">;</span>
+</code></pre></div>
+<p>La consulta utiliza <code>JOIN</code> para relacionar las tres tablas y <code>ORDER BY</code> para ordenar los registros.</p>
+<p><strong>Importante:</strong> para que los grupos aparezcan correctamente, los registros deben estar ordenados por el campo que se utiliza para agrupar. En este ejemplo, se ordenan por <code>id_departamento</code>.</p>
+<p>No necesitamos utilizar <code>GROUP BY</code> en SQL porque queremos conservar el detalle de cada gasto. JasperReports se encargará de organizar visualmente esos registros.</p>
+<h2 id="63-crear-un-grupo-en-jaspersoft-studio">6.3. Crear un grupo en Jaspersoft Studio</h2>
+<p>Vamos a agrupar los gastos por departamento.</p>
+<ol>
+<li>Abre el informe en Jaspersoft Studio.</li>
+<li>En el panel <strong>Outline</strong>, haz clic derecho sobre el informe.</li>
+<li>Selecciona <strong>Create Group</strong>.</li>
+<li>Escribe <code>GrupoDepartamento</code> como nombre del grupo.</li>
+<li>Establece como expresión de agrupación:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">$F</span><span class="p">{</span><span class="n">id_departamento</span><span class="p">}</span>
+</code></pre></div>
+<p>Si la consulta no devuelve ese campo, puedes agrupar por <code>$F{departamento}</code>, aunque utilizar el identificador evita juntar departamentos distintos que tengan el mismo nombre.</p>
+<p>Al crear el grupo, JasperReports añade dos bandas:</p>
+<ul>
+<li><strong>Group Header:</strong> se imprime al comenzar cada grupo.</li>
+<li><strong>Group Footer:</strong> se imprime al terminar cada grupo.</li>
+</ul>
+<h3 id="que-colocamos-en-cada-banda">¿Qué colocamos en cada banda?</h3>
+<table>
+<thead>
+<tr>
+<th>Banda</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Group Header</code></td>
+<td>Nombre del departamento.</td>
+</tr>
+<tr>
+<td><code>Detail</code></td>
+<td>Concepto, fecha e importe de cada gasto.</td>
+</tr>
+<tr>
+<td><code>Group Footer</code></td>
+<td>Subtotal del departamento.</td>
+</tr>
+<tr>
+<td><code>Summary</code></td>
+<td>Total general de todos los gastos.</td>
+</tr>
+</tbody>
+</table>
+<p>En <code>Group Header</code>, arrastra el campo <code>$F{departamento}</code>.</p>
+<p>En <code>Detail</code>, coloca los campos <code>$F{concepto}</code>, <code>$F{fecha}</code> y <code>$F{importe}</code>. Si quieres, también puedes mostrar <code>$F{centro}</code>.</p>
+<h2 id="64-crear-una-variable-para-calcular-el-subtotal">6.4. Crear una variable para calcular el subtotal</h2>
+<p>Una variable de JasperReports permite almacenar un valor calculado durante la generación del informe. Podemos utilizarla para sumar los importes de los gastos.</p>
+<p>En el panel <strong>Outline</strong>, busca <strong>Variables</strong> y crea una variable con estas propiedades:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><code>SubtotalDepartamento</code></td>
+</tr>
+<tr>
+<td>Value Class Name</td>
+<td><code>java.math.BigDecimal</code></td>
+</tr>
+<tr>
+<td>Calculation</td>
+<td><code>Sum</code></td>
+</tr>
+<tr>
+<td>Expression</td>
+<td><code>$F{importe}</code></td>
+</tr>
+<tr>
+<td>Reset type</td>
+<td><code>Group</code></td>
+</tr>
+<tr>
+<td>Reset Group</td>
+<td><code>GrupoDepartamento</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="que-significa-cada-propiedad">¿Qué significa cada propiedad?</h3>
+<ul>
+<li><strong>Name:</strong> nombre con el que identificamos la variable.</li>
+<li><strong>Value Class Name:</strong> tipo de dato del resultado. <code>BigDecimal</code> es adecuado para cantidades decimales y monetarias.</li>
+<li><strong>Calculation = Sum:</strong> suma los valores de la expresión.</li>
+<li><strong>Expression:</strong> indica qué valor se acumula en cada registro.</li>
+<li><strong>Reset type = Group:</strong> reinicia el cálculo cuando comienza un nuevo grupo.</li>
+<li><strong>Reset Group:</strong> indica el grupo que provoca el reinicio.</li>
+</ul>
+<p>La expresión <code>$F{importe}</code> hace que se acumule el importe de cada gasto.</p>
+<p>Por ejemplo, si un departamento tiene gastos de 180,50 € y 320,00 €, el subtotal será:</p>
+<div class="highlight"><pre><span></span><code>180,50 + 320,00 = 500,50 €
+</code></pre></div>
+<p>Cuando comienza otro departamento, la variable se reinicia y comienza a calcular su subtotal.</p>
+<h3 id="mostrar-el-subtotal-en-el-informe">Mostrar el subtotal en el informe</h3>
+<ol>
+<li>Selecciona la banda <code>Group Footer</code> del grupo <code>GrupoDepartamento</code>.</li>
+<li>Añade un <code>Static Text</code> con el texto <code>Subtotal departamento:</code>.</li>
+<li>Añade un <code>Text Field</code> con la expresión:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">$V</span><span class="p">{</span><span class="n">SubtotalDepartamento</span><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Para mostrar dos decimales y el símbolo del euro, configura el patrón:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>#,##0.00 €
+</code></pre></div>
+<p>Ajusta la posición y la anchura de los elementos para que el texto y la cantidad no se solapen.</p>
+<h2 id="65-calcular-el-total-general">6.5. Calcular el total general</h2>
+<p>El total general suma los importes de todos los registros del informe, sin reiniciarse cuando cambia el departamento.</p>
+<p>Crea otra variable con esta configuración:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><code>TotalGeneral</code></td>
+</tr>
+<tr>
+<td>Value Class Name</td>
+<td><code>java.math.BigDecimal</code></td>
+</tr>
+<tr>
+<td>Calculation</td>
+<td><code>Sum</code></td>
+</tr>
+<tr>
+<td>Expression</td>
+<td><code>$F{importe}</code></td>
+</tr>
+<tr>
+<td>Reset type</td>
+<td><code>Report</code></td>
+</tr>
+</tbody>
+</table>
+<p>La diferencia está en <code>Reset type</code>:</p>
+<ul>
+<li><code>Group</code>: reinicia la suma para cada grupo.</li>
+<li><code>Report</code>: mantiene la suma durante todo el informe y la reinicia al comenzar una nueva ejecución del informe.</li>
+</ul>
+<p>Para mostrar el total general:</p>
+<ol>
+<li>Selecciona la banda <code>Summary</code>.</li>
+<li>Añade un <code>Static Text</code> con el texto <code>TOTAL GENERAL:</code>.</li>
+<li>Añade un <code>Text Field</code> con la expresión:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">$V</span><span class="p">{</span><span class="n">TotalGeneral</span><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>Aplica el patrón monetario <code>#,##0.00 €</code>.</li>
+</ol>
+<p>La banda <code>Summary</code> se imprime al final del informe. Si el informe ocupa varias páginas, el resumen aparecerá después de los registros, normalmente al final de la última página, siempre que la configuración y el espacio disponible lo permitan.</p>
+<h2 id="66-diferencia-entre-agrupar-en-sql-y-agrupar-en-jasperreports">6.6. Diferencia entre agrupar en SQL y agrupar en JasperReports</h2>
+<p>No debemos confundir estas dos operaciones.</p>
+<h3 id="agrupar-y-sumar-en-sql">Agrupar y sumar en SQL</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">departamento</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">g</span><span class="p">.</span><span class="n">importe</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">subtotal</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">clase</span><span class="p">.</span><span class="n">gastos</span><span class="w"> </span><span class="k">g</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">clase</span><span class="p">.</span><span class="n">departamento</span><span class="w"> </span><span class="n">d</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">id_departamento</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id_departamento</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span><span class="p">;</span>
+</code></pre></div>
+<p>Esta consulta devuelve una fila por departamento con su subtotal. No devuelve cada gasto individual.</p>
+<h3 id="agrupar-en-jasperreports">Agrupar en JasperReports</h3>
+<p>La consulta devuelve todos los gastos detallados. JasperReports los organiza en grupos y calcula los subtotales mediante variables.</p>
+<p>Este enfoque resulta útil cuando necesitamos mostrar simultáneamente:</p>
+<ul>
+<li>Los detalles de cada gasto.</li>
+<li>El subtotal de cada departamento.</li>
+<li>El total general del informe.</li>
+</ul>
+<h2 id="67-agrupaciones-anidadas-por-centro-y-departamento">6.7. Agrupaciones anidadas por centro y departamento</h2>
+<p>También podemos organizar los gastos en dos niveles:</p>
+<ol>
+<li>Centro.</li>
+<li>Departamento dentro de cada centro.</li>
+</ol>
+<p>Para hacerlo, crea dos grupos y ordénalos en el mismo orden en la consulta:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">id_centro</span><span class="p">,</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">id_departamento</span><span class="p">,</span>
+<span class="w">    </span><span class="k">g</span><span class="p">.</span><span class="n">fecha</span><span class="p">;</span>
+</code></pre></div>
+<p>El grupo exterior será <code>GrupoCentro</code>, con expresión <code>$F{id_centro}</code>. El grupo interior será <code>GrupoDepartamento</code>, con expresión <code>$F{id_departamento}</code>.</p>
+<p>Para esta variante, añade <code>c.id_centro</code> a la consulta.</p>
+<p>Puedes calcular:</p>
+<ul>
+<li>Un subtotal por departamento, reiniciado en <code>GrupoDepartamento</code>.</li>
+<li>Un subtotal por centro, reiniciado en <code>GrupoCentro</code>.</li>
+<li>Un total general, reiniciado en <code>Report</code>.</li>
+</ul>
+<p>Cuando hay varios niveles, comprueba que el orden de los grupos coincide con el orden de los datos y que cada variable tiene configurado el grupo de reinicio correcto.</p>
+<h2 id="68-errores-frecuentes">6.8. Errores frecuentes</h2>
+<h3 id="el-subtotal-siempre-muestra-cero-o-un-valor-incorrecto">El subtotal siempre muestra cero o un valor incorrecto</h3>
+<p>Comprueba que la expresión sea <code>$F{importe}</code>, que el cálculo sea <code>Sum</code> y que el campo <code>importe</code> tenga un tipo numérico, por ejemplo <code>java.math.BigDecimal</code>.</p>
+<h3 id="aparece-el-error-reset-group-missing-for-variable">Aparece el error “Reset group missing for variable”</h3>
+<p>La variable tiene <code>Reset type = Group</code>, pero no tiene asignado un grupo. Selecciona <code>GrupoDepartamento</code> en <code>Reset Group</code>.</p>
+<h3 id="el-subtotal-no-se-reinicia-al-cambiar-de-departamento">El subtotal no se reinicia al cambiar de departamento</h3>
+<p>Comprueba que <code>Reset type</code> sea <code>Group</code> y que <code>Reset Group</code> sea el grupo correcto.</p>
+<h3 id="el-mismo-departamento-aparece-varias-veces">El mismo departamento aparece varias veces</h3>
+<p>Revisa el <code>ORDER BY</code> de la consulta y la expresión de agrupación. Es recomendable agrupar por el identificador del departamento y ordenar por ese mismo identificador.</p>
+<h3 id="no-aparece-el-total-general">No aparece el total general</h3>
+<p>Comprueba que la variable <code>TotalGeneral</code> tenga <code>Calculation = Sum</code>, expresión <code>$F{importe}</code> y <code>Reset type = Report</code>. Verifica también que el campo <code>$V{TotalGeneral}</code> esté dentro de la banda <code>Summary</code>.</p>
+<h2 id="69-actividad-practica">6.9. Actividad práctica</h2>
+<p>Crea un informe de gastos usando las tablas <code>clase.centro</code>, <code>clase.departamento</code> y <code>clase.gastos</code>.</p>
+<p>Requisitos:</p>
+<ol>
+<li>Mostrar el centro, el departamento, el concepto, la fecha y el importe.</li>
+<li>Agrupar los gastos por departamento.</li>
+<li>Mostrar el nombre del departamento en la cabecera del grupo.</li>
+<li>Calcular y mostrar el subtotal de cada departamento.</li>
+<li>Mostrar el total general en la banda <code>Summary</code>.</li>
+<li>Formatear todos los importes con dos decimales y el símbolo del euro.</li>
+<li>Ordenar los gastos por departamento y fecha.</li>
+</ol>
+<p><strong>Ampliación:</strong> crea una segunda versión con agrupación por centro y, dentro de cada centro, por departamento. Añade subtotales por departamento y centro, además del total general.</p>
+<h2 id="resumen">Resumen</h2>
+<ul>
+<li>Los grupos organizan visualmente los registros del informe.</li>
+<li><code>Group Header</code> muestra información al comenzar un grupo.</li>
+<li><code>Group Footer</code> permite mostrar el subtotal del grupo.</li>
+<li>Una variable con <code>Calculation = Sum</code> acumula valores.</li>
+<li><code>Reset type = Group</code> reinicia el cálculo en cada grupo.</li>
+<li><code>Reset type = Report</code> permite calcular el total general.</li>
+<li>SQL puede agrupar datos, pero si necesitamos mostrar el detalle de cada registro, podemos dejar que JasperReports realice la agrupación visual.</li>
+</ul>
+<p><a href="../practica_informe_notas_jasperreports/">Practica UD3</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
