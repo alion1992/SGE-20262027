@@ -48,6 +48,27 @@ Trabajaremos con:
 
 ---
 
+### 🧩 UD4. Desarrollo y personalización de módulos en Odoo
+
+En esta unidad aprenderemos a desarrollar y personalizar módulos en Odoo, creando nuevas funcionalidades adaptadas a las necesidades de gestión de una empresa.
+
+Trabajaremos con:
+
+- Python aplicado a Odoo.
+- Modelos y campos.
+- Campos relacionales.
+- ORM de Odoo.
+- Métodos y lógica de negocio.
+- Campos calculados y restricciones.
+- Vistas XML (formulario, lista y kanban).
+- Acciones y menús.
+- Herencia de modelos y vistas.
+- Personalización de módulos existentes.
+- Seguridad y permisos de acceso.
+- Desarrollo de un módulo completo.
+
+[➡️ Acceder a la UD4](ud4/index.md){ .md-button .md-button--primary }
+
 ## 🎯 Objetivo del módulo
 
 El objetivo es conocer las principales herramientas utilizadas en los sistemas de gestión empresarial y aprender a **implantarlos, configurarlos, consultar su información y adaptarlos a las necesidades de una organización**.
