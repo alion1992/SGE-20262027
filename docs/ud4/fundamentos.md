@@ -1348,7 +1348,616 @@ Aquí tenemos:
 
 ---
 
-# 32. Ejemplo práctico: cajero automático
+# 32. Uso de ficheros en Python
+
+Hasta ahora hemos trabajado con datos almacenados en variables, listas y diccionarios. Sin embargo, cuando finaliza la ejecución de un programa, estos datos desaparecen.
+
+Para conservar información y poder recuperarla posteriormente, podemos utilizar **ficheros**.
+
+En aplicaciones empresariales es habitual trabajar con ficheros para almacenar información, generar informes, guardar registros de actividad o intercambiar datos entre aplicaciones.
+
+## 32.1. Abrir un fichero
+
+Python proporciona la función `open()` para abrir ficheros.
+
+Su sintaxis básica es:
+
+```python
+fichero = open("nombre_fichero.txt", "modo")
+```
+
+Tiene dos parámetros principales:
+
+- **Nombre del fichero:** indica el fichero que queremos abrir.
+- **Modo:** indica qué operación queremos realizar.
+
+Los modos más habituales son:
+
+| Modo | Descripción |
+|---|---|
+| `r` | Lectura. El fichero debe existir. |
+| `w` | Escritura. Si existe, sobrescribe su contenido. |
+| `a` | Añadir contenido al final del fichero. |
+| `r+` | Lectura y escritura. |
+| `x` | Crea un fichero nuevo. Si ya existe, genera un error. |
+
+También podemos indicar la codificación mediante el parámetro `encoding`.
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+```
+
+Es recomendable utilizar UTF-8 para trabajar correctamente con caracteres especiales, como tildes y eñes.
+
+## 32.2. Leer información de un fichero
+
+Podemos utilizar diferentes métodos para recuperar el contenido de un fichero.
+
+### Método `read()`
+
+Lee todo el contenido del fichero y lo devuelve como una cadena de texto.
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+
+contenido = fichero.read()
+
+print(contenido)
+
+fichero.close()
+```
+
+### Método `readline()`
+
+Lee una única línea del fichero.
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+
+linea = fichero.readline()
+
+print(linea)
+
+fichero.close()
+```
+
+Si queremos recorrer todas las líneas:
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+
+linea = fichero.readline()
+
+while linea:
+    print(linea, end="")
+    linea = fichero.readline()
+
+fichero.close()
+```
+
+### Método `readlines()`
+
+Lee todas las líneas y las devuelve en una lista.
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+
+lineas = fichero.readlines()
+
+for linea in lineas:
+    print(linea, end="")
+
+fichero.close()
+```
+
+## 32.3. Cerrar un fichero
+
+Cuando terminamos de trabajar con un fichero, debemos cerrarlo mediante el método `close()`.
+
+```python
+fichero = open("clientes.txt", "r", encoding="utf-8")
+
+contenido = fichero.read()
+
+fichero.close()
+```
+
+Cerrar los ficheros permite liberar recursos del sistema y evitar problemas relacionados con su utilización.
+
+### Utilizar `with`
+
+Python proporciona una forma más segura y cómoda de trabajar con ficheros mediante la instrucción `with`.
+
+El fichero se cierra automáticamente cuando termina el bloque de código, incluso si se produce una excepción.
+
+```python
+with open("clientes.txt", "r", encoding="utf-8") as fichero:
+    contenido = fichero.read()
+    print(contenido)
+```
+
+**Recomendación:** utiliza siempre `with` para trabajar con ficheros, salvo que exista una razón concreta para gestionar manualmente su apertura y cierre.
+
+## 32.4. Escribir información en un fichero
+
+Para escribir información utilizamos el modo `w`.
+
+Si el fichero no existe, Python lo crea. Si ya existe, elimina su contenido anterior y escribe el nuevo.
+
+### Método `write()`
+
+Permite escribir una cadena de texto.
+
+```python
+with open("clientes.txt", "w", encoding="utf-8") as fichero:
+    fichero.write("Cliente: Ana García\n")
+    fichero.write("Cliente: Pedro López\n")
+    fichero.write("Cliente: María Sánchez\n")
+```
+
+El carácter `\n` representa un salto de línea.
+
+### Método `writelines()`
+
+Permite escribir una colección de cadenas de texto.
+
+```python
+clientes = [
+    "Ana García\n",
+    "Pedro López\n",
+    "María Sánchez\n"
+]
+
+with open("clientes.txt", "w", encoding="utf-8") as fichero:
+    fichero.writelines(clientes)
+```
+
+**Importante:** `writelines()` no añade automáticamente los saltos de línea. Debemos incluirlos en cada cadena cuando sean necesarios.
+
+## 32.5. Añadir contenido a un fichero
+
+Si queremos añadir información sin eliminar el contenido existente, utilizaremos el modo `a`.
+
+```python
+with open("clientes.txt", "a", encoding="utf-8") as fichero:
+    fichero.write("Nuevo cliente: Juan Martínez\n")
+```
+
+Esta opción resulta especialmente útil para registrar nuevas operaciones sin perder los datos anteriores.
+
+## 32.6. Ejemplo práctico: registro de operaciones
+
+Imaginemos que desarrollamos una pequeña aplicación empresarial que registra las operaciones realizadas.
+
+Podemos guardar cada operación en un fichero de texto.
+
+```python
+from datetime import datetime
+
+def registrar_operacion(mensaje):
+
+    fecha = datetime.now()
+
+    with open("operaciones.txt", "a", encoding="utf-8") as fichero:
+
+        fichero.write(
+            f"{fecha} - {mensaje}\n"
+        )
+
+
+registrar_operacion("Alta de un nuevo cliente")
+registrar_operacion("Creación de un pedido")
+registrar_operacion("Actualización de inventario")
+```
+
+Cada vez que ejecutemos la función, se añadirá una nueva línea al fichero `operaciones.txt`.
+
+Este tipo de registros permite mantener un historial de las operaciones realizadas por una aplicación.
+
+---
+
+# 33. Excepciones en Python
+
+Durante la ejecución de un programa pueden producirse errores.
+
+Por ejemplo:
+
+- Intentar dividir un número entre cero.
+- Acceder a una posición inexistente de una lista.
+- Intentar convertir un texto que no contiene un número a entero.
+- Abrir un fichero que no existe.
+- Acceder a una clave inexistente de un diccionario.
+
+Estos errores pueden interrumpir la ejecución del programa.
+
+Python dispone de un mecanismo denominado **excepciones**, que permite detectar y gestionar estos errores para evitar que una aplicación termine inesperadamente.
+
+## 33.1. ¿Qué es una excepción?
+
+Una excepción es un evento que se produce durante la ejecución de un programa cuando ocurre una situación que impide continuar con la ejecución normal de una instrucción.
+
+Por ejemplo:
+
+```python
+numero1 = 10
+numero2 = 0
+
+resultado = numero1 / numero2
+
+print(resultado)
+```
+
+Este código genera una excepción:
+
+```text
+ZeroDivisionError: division by zero
+```
+
+El problema es que estamos intentando dividir entre cero.
+
+Si no gestionamos la excepción, el programa se interrumpe.
+
+## 33.2. Gestionar excepciones con `try` y `except`
+
+Python permite controlar los errores utilizando las instrucciones `try` y `except`.
+
+- `try`: contiene el código que puede generar una excepción.
+- `except`: contiene las instrucciones que se ejecutarán si se produce una excepción.
+
+Ejemplo:
+
+```python
+try:
+
+    numero1 = 10
+    numero2 = 0
+
+    resultado = numero1 / numero2
+
+    print(resultado)
+
+except ZeroDivisionError:
+
+    print("No se puede dividir entre cero.")
+
+print("El programa continúa ejecutándose")
+```
+
+Aunque se produzca el error, el programa puede continuar después de gestionar la excepción.
+
+## 33.3. Gestionar diferentes excepciones
+
+Podemos utilizar varios bloques `except` para controlar diferentes tipos de errores.
+
+```python
+try:
+
+    numero = int(input("Introduce un número: "))
+
+    resultado = 100 / numero
+
+    print("Resultado:", resultado)
+
+except ValueError:
+
+    print("Debes introducir un número entero.")
+
+except ZeroDivisionError:
+
+    print("No se puede dividir entre cero.")
+```
+
+En este ejemplo podemos encontrarnos con dos situaciones:
+
+1. El usuario introduce un texto que no puede convertirse a entero.
+2. El usuario introduce el número cero y se produce una división por cero.
+
+Cada excepción tiene su propio tratamiento.
+
+## 33.4. Excepciones estándar más comunes
+
+Python incorpora numerosas excepciones que permiten identificar distintos tipos de errores.
+
+| Excepción | Descripción |
+|---|---|
+| `ZeroDivisionError` | División entre cero. |
+| `ValueError` | Valor incorrecto para una operación. |
+| `TypeError` | Operación aplicada a un tipo de dato incorrecto. |
+| `IndexError` | Índice fuera del rango de una secuencia. |
+| `KeyError` | Clave inexistente en un diccionario. |
+| `NameError` | Variable o nombre no definido. |
+| `AttributeError` | Atributo inexistente en un objeto. |
+| `FileNotFoundError` | Fichero que no existe. |
+| `PermissionError` | Falta de permisos para realizar una operación. |
+| `ImportError` | Error al importar un módulo. |
+| `ModuleNotFoundError` | No se encuentra un módulo. |
+| `OSError` | Error relacionado con el sistema operativo. |
+| `AssertionError` | Error producido por una aserción que no se cumple. |
+
+### Ejemplo de `ValueError`
+
+```python
+try:
+
+    edad = int("veinte")
+
+except ValueError:
+
+    print("La edad debe ser un número.")
+```
+
+### Ejemplo de `IndexError`
+
+```python
+numeros = [10, 20, 30]
+
+try:
+
+    print(numeros[5])
+
+except IndexError:
+
+    print("La posición indicada no existe.")
+```
+
+### Ejemplo de `KeyError`
+
+```python
+cliente = {
+    "nombre": "Ana",
+    "edad": 30
+}
+
+try:
+
+    print(cliente["telefono"])
+
+except KeyError:
+
+    print("El cliente no tiene registrado un teléfono.")
+```
+
+## 33.5. Capturar información de una excepción
+
+Podemos recuperar el mensaje de error utilizando `as`.
+
+```python
+try:
+
+    numero = int("hola")
+
+except ValueError as error:
+
+    print("Se ha producido un error:")
+    print(error)
+```
+
+La variable `error` contiene información sobre la excepción producida.
+
+Esto resulta especialmente útil para mostrar mensajes más descriptivos o registrar errores en una aplicación.
+
+## 33.6. La instrucción `else`
+
+Podemos utilizar `else` junto con `try` y `except`.
+
+El bloque `else` se ejecuta únicamente cuando no se ha producido ninguna excepción dentro del bloque `try`.
+
+```python
+try:
+
+    numero = int(input("Introduce un número: "))
+
+except ValueError:
+
+    print("Debes introducir un número válido.")
+
+else:
+
+    print("Número introducido correctamente:", numero)
+```
+
+## 33.7. La instrucción `finally`
+
+El bloque `finally` se ejecuta siempre, independientemente de que se produzca una excepción o no.
+
+Se utiliza especialmente para realizar operaciones de limpieza o liberar recursos.
+
+```python
+try:
+
+    numero = int(input("Introduce un número: "))
+
+    print("Número:", numero)
+
+except ValueError:
+
+    print("El valor introducido no es válido.")
+
+finally:
+
+    print("Fin del proceso.")
+```
+
+### Ejemplo con ficheros
+
+```python
+fichero = None
+
+try:
+
+    fichero = open("clientes.txt", "r", encoding="utf-8")
+
+    contenido = fichero.read()
+
+    print(contenido)
+
+except FileNotFoundError:
+
+    print("El fichero no existe.")
+
+finally:
+
+    if fichero is not None:
+        fichero.close()
+```
+
+En este ejemplo:
+
+1. Intentamos abrir el fichero.
+2. Si no existe, capturamos `FileNotFoundError`.
+3. Independientemente del resultado, el bloque `finally` se ejecuta.
+4. Si el fichero llegó a abrirse, lo cerramos.
+
+Como hemos visto anteriormente, al utilizar `with` no necesitamos gestionar manualmente el cierre del fichero.
+
+## 33.8. Lanzar excepciones con `raise`
+
+Hasta ahora hemos visto cómo capturar excepciones que se producen durante la ejecución.
+
+Sin embargo, también podemos generar nuestras propias excepciones utilizando la instrucción `raise`.
+
+Esto resulta especialmente útil para controlar las reglas de negocio de una aplicación.
+
+Ejemplo:
+
+```python
+def validar_precio(precio):
+
+    if precio < 0:
+        raise ValueError("El precio no puede ser negativo.")
+
+    return precio
+
+
+try:
+
+    precio = validar_precio(-25)
+
+    print("Precio:", precio)
+
+except ValueError as error:
+
+    print("Error:", error)
+```
+
+En este caso, somos nosotros quienes generamos la excepción cuando detectamos que el precio no cumple las condiciones establecidas.
+
+## 33.9. Jerarquía de excepciones
+
+Python organiza las excepciones mediante una jerarquía de clases.
+
+La clase `BaseException` es la clase base de todas las excepciones.
+
+De ella hereda `Exception`, que es la clase base habitual para las excepciones que debemos gestionar en nuestras aplicaciones.
+
+Algunos ejemplos:
+
+- `ArithmeticError`: errores relacionados con operaciones aritméticas.
+  - `ZeroDivisionError`
+  - `OverflowError`
+- `LookupError`: errores al buscar elementos.
+  - `IndexError`
+  - `KeyError`
+- `OSError`: errores relacionados con el sistema operativo.
+  - `FileNotFoundError`
+  - `PermissionError`
+
+Podemos utilizar `Exception` para capturar diferentes excepciones de forma genérica:
+
+```python
+try:
+
+    numero = int(input("Introduce un número: "))
+
+    resultado = 100 / numero
+
+except Exception as error:
+
+    print("Se ha producido un error:", error)
+```
+
+**Recomendación:** es preferible capturar excepciones concretas siempre que sea posible. Utilizar `except Exception` indiscriminadamente puede ocultar errores que deberíamos detectar y corregir.
+
+No es recomendable utilizar `except BaseException` para gestionar errores habituales, ya que también captura interrupciones del programa como `KeyboardInterrupt` y solicitudes de salida como `SystemExit`.
+
+## 33.10. Buenas prácticas al trabajar con excepciones
+
+Cuando desarrollamos aplicaciones debemos tener en cuenta algunas recomendaciones:
+
+1. Utilizar `try` únicamente alrededor del código que puede generar una excepción.
+2. Capturar excepciones específicas en lugar de utilizar siempre `Exception`.
+3. Mostrar mensajes comprensibles para el usuario.
+4. No ocultar errores utilizando bloques `except` vacíos.
+5. Utilizar `finally` cuando necesitemos liberar recursos.
+6. Utilizar `with` para gestionar automáticamente la apertura y cierre de ficheros.
+7. Utilizar `raise` cuando una operación incumpla una regla de negocio.
+
+### Ejemplo práctico: gestión de clientes
+
+Vamos a combinar el uso de ficheros y excepciones para desarrollar una pequeña funcionalidad de gestión empresarial.
+
+El programa permitirá registrar clientes en un fichero de texto y consultar posteriormente su información.
+
+```python
+def registrar_cliente(nombre, email):
+
+    if not nombre.strip():
+        raise ValueError("El nombre del cliente es obligatorio.")
+
+    if not email.strip():
+        raise ValueError("El email del cliente es obligatorio.")
+
+    with open("clientes.txt", "a", encoding="utf-8") as fichero:
+
+        fichero.write(f"{nombre};{email}\n")
+
+
+def mostrar_clientes():
+
+    try:
+
+        with open("clientes.txt", "r", encoding="utf-8") as fichero:
+
+            for linea in fichero:
+
+                nombre, email = linea.strip().split(";")
+
+                print(f"Cliente: {nombre} - Email: {email}")
+
+    except FileNotFoundError:
+
+        print("Todavía no existen clientes registrados.")
+
+    except ValueError:
+
+        print("Existe un registro con un formato incorrecto.")
+
+
+try:
+
+    registrar_cliente("Ana García", "ana@email.com")
+    registrar_cliente("Pedro López", "pedro@email.com")
+
+    mostrar_clientes()
+
+except ValueError as error:
+
+    print("Error:", error)
+```
+
+Este ejemplo combina varios conceptos:
+
+- Definición de funciones.
+- Validación de datos.
+- Uso de excepciones.
+- Lectura y escritura de ficheros.
+- Gestión de información empresarial.
+
+Son conceptos fundamentales para desarrollar aplicaciones que trabajen con información y necesiten controlar posibles errores durante su ejecución.
+
+---
+
+# Ejemplo práctico: cajero automático
 
 Podemos utilizar las estructuras de control para crear un pequeño cajero.
 
@@ -1404,7 +2013,7 @@ Este ejemplo combina:
 
 ---
 
-# 33. Ejemplo práctico: sistema de notas
+#  Ejemplo práctico: sistema de notas
 
 ```python
 cantidad = int(input("Número de alumnos: "))
@@ -1465,7 +2074,7 @@ Este ejemplo permite trabajar con:
 
 ---
 
-# 35. Ejemplo práctico: menú de aplicación
+#  Ejemplo práctico: menú de aplicación
 
 Los menús son un caso habitual de utilización de estructuras de control.
 
@@ -1503,7 +2112,7 @@ Este patrón aparecerá posteriormente en aplicaciones más complejas.
 
 ---
 
-# 36. Ejemplo práctico: programación de drones
+# Ejemplo práctico: programación de drones
 
 Las estructuras de control también pueden utilizarse para automatizar dispositivos físicos.
 
@@ -1546,7 +2155,7 @@ En unidades posteriores aplicaremos estos conceptos a la **programación de dron
 
 ---
 
-# 37. Buenas prácticas
+#  Buenas prácticas
 
 ## Utilizar nombres descriptivos
 
@@ -1591,7 +2200,7 @@ Si una solución empieza a crecer demasiado, posteriormente podremos utilizar fu
 
 ---
 
-# 38. Errores frecuentes
+#  Errores frecuentes
 
 ### Confundir `=` con `==`
 

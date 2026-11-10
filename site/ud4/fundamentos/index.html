@@ -2351,7 +2351,536 @@ n
 <li>Una secuencia de instrucciones.</li>
 </ul>
 <hr />
-<h1 id="32-ejemplo-practico-cajero-automatico">32. Ejemplo práctico: cajero automático</h1>
+<h1 id="32-uso-de-ficheros-en-python">32. Uso de ficheros en Python</h1>
+<p>Hasta ahora hemos trabajado con datos almacenados en variables, listas y diccionarios. Sin embargo, cuando finaliza la ejecución de un programa, estos datos desaparecen.</p>
+<p>Para conservar información y poder recuperarla posteriormente, podemos utilizar <strong>ficheros</strong>.</p>
+<p>En aplicaciones empresariales es habitual trabajar con ficheros para almacenar información, generar informes, guardar registros de actividad o intercambiar datos entre aplicaciones.</p>
+<h2 id="321-abrir-un-fichero">32.1. Abrir un fichero</h2>
+<p>Python proporciona la función <code>open()</code> para abrir ficheros.</p>
+<p>Su sintaxis básica es:</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"nombre_fichero.txt"</span><span class="p">,</span> <span class="s2">"modo"</span><span class="p">)</span>
+</code></pre></div>
+<p>Tiene dos parámetros principales:</p>
+<ul>
+<li><strong>Nombre del fichero:</strong> indica el fichero que queremos abrir.</li>
+<li><strong>Modo:</strong> indica qué operación queremos realizar.</li>
+</ul>
+<p>Los modos más habituales son:</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>Lectura. El fichero debe existir.</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Escritura. Si existe, sobrescribe su contenido.</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Añadir contenido al final del fichero.</td>
+</tr>
+<tr>
+<td><code>r+</code></td>
+<td>Lectura y escritura.</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>Crea un fichero nuevo. Si ya existe, genera un error.</td>
+</tr>
+</tbody>
+</table>
+<p>También podemos indicar la codificación mediante el parámetro <code>encoding</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</code></pre></div>
+<p>Es recomendable utilizar UTF-8 para trabajar correctamente con caracteres especiales, como tildes y eñes.</p>
+<h2 id="322-leer-informacion-de-un-fichero">32.2. Leer información de un fichero</h2>
+<p>Podemos utilizar diferentes métodos para recuperar el contenido de un fichero.</p>
+<h3 id="metodo-read">Método <code>read()</code></h3>
+<p>Lee todo el contenido del fichero y lo devuelve como una cadena de texto.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+
+<span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="metodo-readline">Método <code>readline()</code></h3>
+<p>Lee una única línea del fichero.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span>
+
+<span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Si queremos recorrer todas las líneas:</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="n">linea</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="metodo-readlines">Método <code>readlines()</code></h3>
+<p>Lee todas las líneas y las devuelve en una lista.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="n">lineas</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">lineas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+
+<span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="323-cerrar-un-fichero">32.3. Cerrar un fichero</h2>
+<p>Cuando terminamos de trabajar con un fichero, debemos cerrarlo mediante el método <code>close()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Cerrar los ficheros permite liberar recursos del sistema y evitar problemas relacionados con su utilización.</p>
+<h3 id="utilizar-with">Utilizar <code>with</code></h3>
+<p>Python proporciona una forma más segura y cómoda de trabajar con ficheros mediante la instrucción <code>with</code>.</p>
+<p>El fichero se cierra automáticamente cuando termina el bloque de código, incluso si se produce una excepción.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+    <span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Recomendación:</strong> utiliza siempre <code>with</code> para trabajar con ficheros, salvo que exista una razón concreta para gestionar manualmente su apertura y cierre.</p>
+<h2 id="324-escribir-informacion-en-un-fichero">32.4. Escribir información en un fichero</h2>
+<p>Para escribir información utilizamos el modo <code>w</code>.</p>
+<p>Si el fichero no existe, Python lo crea. Si ya existe, elimina su contenido anterior y escribe el nuevo.</p>
+<h3 id="metodo-write">Método <code>write()</code></h3>
+<p>Permite escribir una cadena de texto.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+    <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Cliente: Ana García</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Cliente: Pedro López</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Cliente: María Sánchez</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>El carácter <code>\n</code> representa un salto de línea.</p>
+<h3 id="metodo-writelines">Método <code>writelines()</code></h3>
+<p>Permite escribir una colección de cadenas de texto.</p>
+<div class="highlight"><pre><span></span><code><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"Ana García</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+    <span class="s2">"Pedro López</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+    <span class="s2">"María Sánchez</span><span class="se">\n</span><span class="s2">"</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+    <span class="n">fichero</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">clientes</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Importante:</strong> <code>writelines()</code> no añade automáticamente los saltos de línea. Debemos incluirlos en cada cadena cuando sean necesarios.</p>
+<h2 id="325-anadir-contenido-a-un-fichero">32.5. Añadir contenido a un fichero</h2>
+<p>Si queremos añadir información sin eliminar el contenido existente, utilizaremos el modo <code>a</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+    <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Nuevo cliente: Juan Martínez</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>Esta opción resulta especialmente útil para registrar nuevas operaciones sin perder los datos anteriores.</p>
+<h2 id="326-ejemplo-practico-registro-de-operaciones">32.6. Ejemplo práctico: registro de operaciones</h2>
+<p>Imaginemos que desarrollamos una pequeña aplicación empresarial que registra las operaciones realizadas.</p>
+<p>Podemos guardar cada operación en un fichero de texto.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">registrar_operacion</span><span class="p">(</span><span class="n">mensaje</span><span class="p">):</span>
+
+    <span class="n">fecha</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"operaciones.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+
+        <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">fecha</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">mensaje</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+
+<span class="n">registrar_operacion</span><span class="p">(</span><span class="s2">"Alta de un nuevo cliente"</span><span class="p">)</span>
+<span class="n">registrar_operacion</span><span class="p">(</span><span class="s2">"Creación de un pedido"</span><span class="p">)</span>
+<span class="n">registrar_operacion</span><span class="p">(</span><span class="s2">"Actualización de inventario"</span><span class="p">)</span>
+</code></pre></div>
+<p>Cada vez que ejecutemos la función, se añadirá una nueva línea al fichero <code>operaciones.txt</code>.</p>
+<p>Este tipo de registros permite mantener un historial de las operaciones realizadas por una aplicación.</p>
+<hr />
+<h1 id="33-excepciones-en-python">33. Excepciones en Python</h1>
+<p>Durante la ejecución de un programa pueden producirse errores.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li>Intentar dividir un número entre cero.</li>
+<li>Acceder a una posición inexistente de una lista.</li>
+<li>Intentar convertir un texto que no contiene un número a entero.</li>
+<li>Abrir un fichero que no existe.</li>
+<li>Acceder a una clave inexistente de un diccionario.</li>
+</ul>
+<p>Estos errores pueden interrumpir la ejecución del programa.</p>
+<p>Python dispone de un mecanismo denominado <strong>excepciones</strong>, que permite detectar y gestionar estos errores para evitar que una aplicación termine inesperadamente.</p>
+<h2 id="331-que-es-una-excepcion">33.1. ¿Qué es una excepción?</h2>
+<p>Una excepción es un evento que se produce durante la ejecución de un programa cuando ocurre una situación que impide continuar con la ejecución normal de una instrucción.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">numero1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">numero2</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">numero1</span> <span class="o">/</span> <span class="n">numero2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+</code></pre></div>
+<p>Este código genera una excepción:</p>
+<div class="highlight"><pre><span></span><code>ZeroDivisionError: division by zero
+</code></pre></div>
+<p>El problema es que estamos intentando dividir entre cero.</p>
+<p>Si no gestionamos la excepción, el programa se interrumpe.</p>
+<h2 id="332-gestionar-excepciones-con-try-y-except">33.2. Gestionar excepciones con <code>try</code> y <code>except</code></h2>
+<p>Python permite controlar los errores utilizando las instrucciones <code>try</code> y <code>except</code>.</p>
+<ul>
+<li><code>try</code>: contiene el código que puede generar una excepción.</li>
+<li><code>except</code>: contiene las instrucciones que se ejecutarán si se produce una excepción.</li>
+</ul>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero1</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">numero2</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">numero1</span> <span class="o">/</span> <span class="n">numero2</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No se puede dividir entre cero."</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"El programa continúa ejecutándose"</span><span class="p">)</span>
+</code></pre></div>
+<p>Aunque se produzca el error, el programa puede continuar después de gestionar la excepción.</p>
+<h2 id="333-gestionar-diferentes-excepciones">33.3. Gestionar diferentes excepciones</h2>
+<p>Podemos utilizar varios bloques <code>except</code> para controlar diferentes tipos de errores.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce un número: "</span><span class="p">))</span>
+
+    <span class="n">resultado</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">numero</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Resultado:"</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Debes introducir un número entero."</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No se puede dividir entre cero."</span><span class="p">)</span>
+</code></pre></div>
+<p>En este ejemplo podemos encontrarnos con dos situaciones:</p>
+<ol>
+<li>El usuario introduce un texto que no puede convertirse a entero.</li>
+<li>El usuario introduce el número cero y se produce una división por cero.</li>
+</ol>
+<p>Cada excepción tiene su propio tratamiento.</p>
+<h2 id="334-excepciones-estandar-mas-comunes">33.4. Excepciones estándar más comunes</h2>
+<p>Python incorpora numerosas excepciones que permiten identificar distintos tipos de errores.</p>
+<table>
+<thead>
+<tr>
+<th>Excepción</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ZeroDivisionError</code></td>
+<td>División entre cero.</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>Valor incorrecto para una operación.</td>
+</tr>
+<tr>
+<td><code>TypeError</code></td>
+<td>Operación aplicada a un tipo de dato incorrecto.</td>
+</tr>
+<tr>
+<td><code>IndexError</code></td>
+<td>Índice fuera del rango de una secuencia.</td>
+</tr>
+<tr>
+<td><code>KeyError</code></td>
+<td>Clave inexistente en un diccionario.</td>
+</tr>
+<tr>
+<td><code>NameError</code></td>
+<td>Variable o nombre no definido.</td>
+</tr>
+<tr>
+<td><code>AttributeError</code></td>
+<td>Atributo inexistente en un objeto.</td>
+</tr>
+<tr>
+<td><code>FileNotFoundError</code></td>
+<td>Fichero que no existe.</td>
+</tr>
+<tr>
+<td><code>PermissionError</code></td>
+<td>Falta de permisos para realizar una operación.</td>
+</tr>
+<tr>
+<td><code>ImportError</code></td>
+<td>Error al importar un módulo.</td>
+</tr>
+<tr>
+<td><code>ModuleNotFoundError</code></td>
+<td>No se encuentra un módulo.</td>
+</tr>
+<tr>
+<td><code>OSError</code></td>
+<td>Error relacionado con el sistema operativo.</td>
+</tr>
+<tr>
+<td><code>AssertionError</code></td>
+<td>Error producido por una aserción que no se cumple.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ejemplo-de-valueerror">Ejemplo de <code>ValueError</code></h3>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">edad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">"veinte"</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"La edad debe ser un número."</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="ejemplo-de-indexerror">Ejemplo de <code>IndexError</code></h3>
+<div class="highlight"><pre><span></span><code><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"La posición indicada no existe."</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="ejemplo-de-keyerror">Ejemplo de <code>KeyError</code></h3>
+<div class="highlight"><pre><span></span><code><span class="n">cliente</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"nombre"</span><span class="p">:</span> <span class="s2">"Ana"</span><span class="p">,</span>
+    <span class="s2">"edad"</span><span class="p">:</span> <span class="mi">30</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">cliente</span><span class="p">[</span><span class="s2">"telefono"</span><span class="p">])</span>
+
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"El cliente no tiene registrado un teléfono."</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="335-capturar-informacion-de-una-excepcion">33.5. Capturar información de una excepción</h2>
+<p>Podemos recuperar el mensaje de error utilizando <code>as</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">"hola"</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Se ha producido un error:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+<p>La variable <code>error</code> contiene información sobre la excepción producida.</p>
+<p>Esto resulta especialmente útil para mostrar mensajes más descriptivos o registrar errores en una aplicación.</p>
+<h2 id="336-la-instruccion-else">33.6. La instrucción <code>else</code></h2>
+<p>Podemos utilizar <code>else</code> junto con <code>try</code> y <code>except</code>.</p>
+<p>El bloque <code>else</code> se ejecuta únicamente cuando no se ha producido ninguna excepción dentro del bloque <code>try</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce un número: "</span><span class="p">))</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Debes introducir un número válido."</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Número introducido correctamente:"</span><span class="p">,</span> <span class="n">numero</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="337-la-instruccion-finally">33.7. La instrucción <code>finally</code></h2>
+<p>El bloque <code>finally</code> se ejecuta siempre, independientemente de que se produzca una excepción o no.</p>
+<p>Se utiliza especialmente para realizar operaciones de limpieza o liberar recursos.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce un número: "</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Número:"</span><span class="p">,</span> <span class="n">numero</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"El valor introducido no es válido."</span><span class="p">)</span>
+
+<span class="k">finally</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fin del proceso."</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="ejemplo-con-ficheros">Ejemplo con ficheros</h3>
+<div class="highlight"><pre><span></span><code><span class="n">fichero</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+    <span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"El fichero no existe."</span><span class="p">)</span>
+
+<span class="k">finally</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">fichero</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>En este ejemplo:</p>
+<ol>
+<li>Intentamos abrir el fichero.</li>
+<li>Si no existe, capturamos <code>FileNotFoundError</code>.</li>
+<li>Independientemente del resultado, el bloque <code>finally</code> se ejecuta.</li>
+<li>Si el fichero llegó a abrirse, lo cerramos.</li>
+</ol>
+<p>Como hemos visto anteriormente, al utilizar <code>with</code> no necesitamos gestionar manualmente el cierre del fichero.</p>
+<h2 id="338-lanzar-excepciones-con-raise">33.8. Lanzar excepciones con <code>raise</code></h2>
+<p>Hasta ahora hemos visto cómo capturar excepciones que se producen durante la ejecución.</p>
+<p>Sin embargo, también podemos generar nuestras propias excepciones utilizando la instrucción <code>raise</code>.</p>
+<p>Esto resulta especialmente útil para controlar las reglas de negocio de una aplicación.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">validar_precio</span><span class="p">(</span><span class="n">precio</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">precio</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"El precio no puede ser negativo."</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">precio</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="n">precio</span> <span class="o">=</span> <span class="n">validar_precio</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Precio:"</span><span class="p">,</span> <span class="n">precio</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+<p>En este caso, somos nosotros quienes generamos la excepción cuando detectamos que el precio no cumple las condiciones establecidas.</p>
+<h2 id="339-jerarquia-de-excepciones">33.9. Jerarquía de excepciones</h2>
+<p>Python organiza las excepciones mediante una jerarquía de clases.</p>
+<p>La clase <code>BaseException</code> es la clase base de todas las excepciones.</p>
+<p>De ella hereda <code>Exception</code>, que es la clase base habitual para las excepciones que debemos gestionar en nuestras aplicaciones.</p>
+<p>Algunos ejemplos:</p>
+<ul>
+<li><code>ArithmeticError</code>: errores relacionados con operaciones aritméticas.</li>
+<li><code>ZeroDivisionError</code></li>
+<li><code>OverflowError</code></li>
+<li><code>LookupError</code>: errores al buscar elementos.</li>
+<li><code>IndexError</code></li>
+<li><code>KeyError</code></li>
+<li><code>OSError</code>: errores relacionados con el sistema operativo.</li>
+<li><code>FileNotFoundError</code></li>
+<li><code>PermissionError</code></li>
+</ul>
+<p>Podemos utilizar <code>Exception</code> para capturar diferentes excepciones de forma genérica:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+
+    <span class="n">numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce un número: "</span><span class="p">))</span>
+
+    <span class="n">resultado</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">numero</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Se ha producido un error:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Recomendación:</strong> es preferible capturar excepciones concretas siempre que sea posible. Utilizar <code>except Exception</code> indiscriminadamente puede ocultar errores que deberíamos detectar y corregir.</p>
+<p>No es recomendable utilizar <code>except BaseException</code> para gestionar errores habituales, ya que también captura interrupciones del programa como <code>KeyboardInterrupt</code> y solicitudes de salida como <code>SystemExit</code>.</p>
+<h2 id="3310-buenas-practicas-al-trabajar-con-excepciones">33.10. Buenas prácticas al trabajar con excepciones</h2>
+<p>Cuando desarrollamos aplicaciones debemos tener en cuenta algunas recomendaciones:</p>
+<ol>
+<li>Utilizar <code>try</code> únicamente alrededor del código que puede generar una excepción.</li>
+<li>Capturar excepciones específicas en lugar de utilizar siempre <code>Exception</code>.</li>
+<li>Mostrar mensajes comprensibles para el usuario.</li>
+<li>No ocultar errores utilizando bloques <code>except</code> vacíos.</li>
+<li>Utilizar <code>finally</code> cuando necesitemos liberar recursos.</li>
+<li>Utilizar <code>with</code> para gestionar automáticamente la apertura y cierre de ficheros.</li>
+<li>Utilizar <code>raise</code> cuando una operación incumpla una regla de negocio.</li>
+</ol>
+<h3 id="ejemplo-practico-gestion-de-clientes">Ejemplo práctico: gestión de clientes</h3>
+<p>Vamos a combinar el uso de ficheros y excepciones para desarrollar una pequeña funcionalidad de gestión empresarial.</p>
+<p>El programa permitirá registrar clientes en un fichero de texto y consultar posteriormente su información.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">registrar_cliente</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nombre</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"El nombre del cliente es obligatorio."</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"El email del cliente es obligatorio."</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+
+        <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mostrar_clientes</span><span class="p">():</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"clientes.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">fichero</span><span class="p">:</span>
+
+                <span class="n">nombre</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cliente: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> - Email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Todavía no existen clientes registrados."</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Existe un registro con un formato incorrecto."</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="n">registrar_cliente</span><span class="p">(</span><span class="s2">"Ana García"</span><span class="p">,</span> <span class="s2">"ana@email.com"</span><span class="p">)</span>
+    <span class="n">registrar_cliente</span><span class="p">(</span><span class="s2">"Pedro López"</span><span class="p">,</span> <span class="s2">"pedro@email.com"</span><span class="p">)</span>
+
+    <span class="n">mostrar_clientes</span><span class="p">()</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+<p>Este ejemplo combina varios conceptos:</p>
+<ul>
+<li>Definición de funciones.</li>
+<li>Validación de datos.</li>
+<li>Uso de excepciones.</li>
+<li>Lectura y escritura de ficheros.</li>
+<li>Gestión de información empresarial.</li>
+</ul>
+<p>Son conceptos fundamentales para desarrollar aplicaciones que trabajen con información y necesiten controlar posibles errores durante su ejecución.</p>
+<hr />
+<h1 id="ejemplo-practico-cajero-automatico">Ejemplo práctico: cajero automático</h1>
 <p>Podemos utilizar las estructuras de control para crear un pequeño cajero.</p>
 <div class="highlight"><pre><span></span><code><span class="n">saldo</span> <span class="o">=</span> <span class="mi">1000</span>
 
@@ -2402,7 +2931,7 @@ n
 <li>Control del flujo.</li>
 </ul>
 <hr />
-<h1 id="33-ejemplo-practico-sistema-de-notas">33. Ejemplo práctico: sistema de notas</h1>
+<h1 id="ejemplo-practico-sistema-de-notas">Ejemplo práctico: sistema de notas</h1>
 <div class="highlight"><pre><span></span><code><span class="n">cantidad</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Número de alumnos: "</span><span class="p">))</span>
 
 <span class="n">aprobados</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2455,7 +2984,7 @@ n
 <li>Contadores.</li>
 </ul>
 <hr />
-<h1 id="35-ejemplo-practico-menu-de-aplicacion">35. Ejemplo práctico: menú de aplicación</h1>
+<h1 id="ejemplo-practico-menu-de-aplicacion">Ejemplo práctico: menú de aplicación</h1>
 <p>Los menús son un caso habitual de utilización de estructuras de control.</p>
 <div class="highlight"><pre><span></span><code><span class="n">opcion</span> <span class="o">=</span> <span class="s2">""</span>
 
@@ -2487,7 +3016,7 @@ n
 </code></pre></div>
 <p>Este patrón aparecerá posteriormente en aplicaciones más complejas.</p>
 <hr />
-<h1 id="36-ejemplo-practico-programacion-de-drones">36. Ejemplo práctico: programación de drones</h1>
+<h1 id="ejemplo-practico-programacion-de-drones">Ejemplo práctico: programación de drones</h1>
 <p>Las estructuras de control también pueden utilizarse para automatizar dispositivos físicos.</p>
 <p>Por ejemplo, una secuencia conceptual de vuelo podría ser:</p>
 <div class="highlight"><pre><span></span><code><span class="n">despegar</span><span class="p">()</span>
@@ -2517,7 +3046,7 @@ n
 </code></pre></div>
 <p>En unidades posteriores aplicaremos estos conceptos a la <strong>programación de drones con Python</strong>.</p>
 <hr />
-<h1 id="37-buenas-practicas">37. Buenas prácticas</h1>
+<h1 id="buenas-practicas">Buenas prácticas</h1>
 <h2 id="utilizar-nombres-descriptivos">Utilizar nombres descriptivos</h2>
 <p>Mejor:</p>
 <div class="highlight"><pre><span></span><code><span class="n">numero_alumnos</span> <span class="o">=</span> <span class="mi">20</span>
@@ -2541,7 +3070,7 @@ n
 <h2 id="dividir-problemas-grandes">Dividir problemas grandes</h2>
 <p>Si una solución empieza a crecer demasiado, posteriormente podremos utilizar funciones para dividirla en partes más pequeñas.</p>
 <hr />
-<h1 id="38-errores-frecuentes">38. Errores frecuentes</h1>
+<h1 id="errores-frecuentes">Errores frecuentes</h1>
 <h3 id="confundir-con">Confundir <code>=</code> con <code>==</code></h3>
 <p>Incorrecto:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">edad</span> <span class="o">=</span> <span class="mi">18</span><span class="p">:</span>
