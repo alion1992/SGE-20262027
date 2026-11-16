@@ -1,0 +1,1508 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>PROYECTO: EL BUSCADOR DEL TESORO - Sistemas de Gestión Empresarial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#proyecto-el-buscador-del-tesoro" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../.." title="Sistemas de Gestión Empresarial" class="md-header__button md-logo" aria-label="Sistemas de Gestión Empresarial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistemas de Gestión Empresarial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PROYECTO: EL BUSCADOR DEL TESORO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sistemas de Gestión Empresarial" class="md-nav__button md-logo" aria-label="Sistemas de Gestión Empresarial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sistemas de Gestión Empresarial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD2 - ERP/CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD2 - ERP/CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Estructura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/odoo-conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Odoo.conf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/puesta-en-marcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Puesta en marcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/mantenimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Mantenimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/practica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud2/sales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Salesforce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD3 - JasperReports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD3 - JasperReports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción a JasperReports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/puesta-en-marcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Puesta en marcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/disenador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Diseñador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/bbdd-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de datos y Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ud3/agrupacioness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Agrupaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UD4 - Desarrollo módulos Odoo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UD4 - Desarrollo módulos Odoo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../poo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orientacion a objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#req001-sistema-de-autenticacion-y-gestion-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req001 Sistema de autenticación y gestión de usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req002-configuracion-de-la-partida-y-niveles-de-dificultad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req002 Configuración de la partida y niveles de dificultad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req003-desarrollo-de-la-partida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req003 Desarrollo de la partida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req004-sistema-de-pistas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req004 Sistema de pistas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req005-funcionalidades-del-administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req005 Funcionalidades del administrador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req006-sistema-de-registro-y-trazabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req006 Sistema de registro y trazabilidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req007-sistema-de-estadisticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req007 Sistema de estadísticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req008-gestion-de-partidas-y-datos-en-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req008 Gestión de partidas y datos en memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#req009-menu-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Req009 Menú principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-y-tratamiento-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación y tratamiento de errores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizacion-y-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organización y estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrega
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubrica-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rúbrica de evaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criterios de evaluación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ra4-adapta-sistemas-erp-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA4 – Adapta sistemas ERP-CRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra5-desarrolla-componentes-para-un-sistema-erp-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA5 – Desarrolla componentes para un sistema ERP-CRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="proyecto-el-buscador-del-tesoro">PROYECTO: EL BUSCADOR DEL TESORO</h1>
+<h2 id="objetivo-principal">Objetivo principal</h2>
+<p>Desarrollar una aplicación de consola en Python que permita gestionar un juego de búsqueda del tesoro mediante una matriz bidimensional generada aleatoriamente.</p>
+<p>La aplicación permitirá que diferentes usuarios registrados puedan iniciar sesión, seleccionar el nivel de dificultad de la partida y tratar de encontrar un tesoro oculto en una matriz. El sistema deberá controlar los intentos realizados, proporcionar pistas cuando corresponda y registrar los resultados de las partidas durante la ejecución del programa.</p>
+<p>Además, existirá un perfil de administrador con funcionalidades adicionales de supervisión, que permitirá consultar el estado de las partidas y acceder a las estadísticas generales de la sesión.</p>
+<p>El proyecto pretende integrar diferentes conceptos de programación en Python, como la programación modular, el uso de funciones, estructuras de datos, matrices bidimensionales, gestión de ficheros, programación orientada a objetos (si se considera oportuno), tratamiento de excepciones y representación gráfica de información.</p>
+<h2 id="requisitos">Requisitos</h2>
+<h3 id="req001-sistema-de-autenticacion-y-gestion-de-usuarios">Req001 Sistema de autenticación y gestión de usuarios</h3>
+<p>La aplicación deberá disponer de un sistema de autenticación mediante usuario y contraseña.</p>
+<ul>
+<li>Existirá un fichero externo que almacenará los usuarios y sus correspondientes contraseñas.</li>
+<li>Únicamente podrán acceder a la aplicación los usuarios que estén registrados en dicho fichero.</li>
+<li>El sistema deberá diferenciar dos tipos de perfiles:</li>
+<li><strong>Administrador:</strong> tendrá acceso a las funcionalidades de administración y supervisión.</li>
+<li><strong>Usuario:</strong> podrá iniciar y jugar partidas, consultar sus resultados y acceder a las funcionalidades permitidas para su perfil.</li>
+<li>La aplicación deberá solicitar las credenciales antes de permitir el acceso al menú principal.</li>
+<li>Se deberá controlar el acceso a las diferentes opciones en función del perfil del usuario autenticado.</li>
+</ul>
+<h3 id="req002-configuracion-de-la-partida-y-niveles-de-dificultad">Req002 Configuración de la partida y niveles de dificultad</h3>
+<p>Antes de comenzar una partida, el usuario deberá poder seleccionar el nivel de dificultad.</p>
+<p>Se establecerán tres niveles:</p>
+<table>
+<thead>
+<tr>
+<th>Dificultad</th>
+<th>Tamaño de la matriz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Básica</td>
+<td>5 x 5</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>8 x 8</td>
+</tr>
+<tr>
+<td>Avanzada</td>
+<td>10 x 10</td>
+</tr>
+</tbody>
+</table>
+<p>El tamaño de la matriz determinará la dificultad del juego.</p>
+<p>Una vez seleccionado el nivel:</p>
+<ul>
+<li>El sistema generará una matriz bidimensional cuadrada.</li>
+<li>La posición del tesoro se establecerá de forma aleatoria.</li>
+<li>El tesoro permanecerá oculto durante el desarrollo de la partida.</li>
+<li>El usuario deberá indicar las coordenadas de la casilla en la que considera que se encuentra el tesoro.</li>
+<li>El sistema comprobará si las coordenadas introducidas son correctas.</li>
+<li>Se deberá controlar que las coordenadas introducidas se encuentren dentro de los límites de la matriz.</li>
+</ul>
+<p><img alt="alt text" src="../image.png" /></p>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="req003-desarrollo-de-la-partida">Req003 Desarrollo de la partida</h3>
+<p>El usuario deberá disponer de un sistema de juego que le permita realizar intentos hasta encontrar el tesoro.</p>
+<p>Para ello:</p>
+<ul>
+<li>El usuario introducirá las coordenadas de la casilla que desea comprobar.</li>
+<li>El sistema indicará si ha encontrado el tesoro o si debe continuar buscando.</li>
+<li>Se contabilizará el número de intentos realizados en cada partida.</li>
+<li>No se permitirá seleccionar nuevamente una casilla que ya haya sido comprobada.</li>
+<li>Cuando el usuario encuentre el tesoro, la partida finalizará y se mostrará un mensaje indicando que ha ganado.</li>
+<li>El sistema registrará el resultado de la partida y el número de intentos necesarios para encontrar el tesoro.</li>
+</ul>
+<h3 id="req004-sistema-de-pistas">Req004 Sistema de pistas</h3>
+<p>La aplicación deberá incorporar un sistema de pistas para ayudar al usuario durante la búsqueda.</p>
+<ul>
+<li>El sistema permitirá utilizar pistas una vez que el usuario haya realizado más de tres intentos sin encontrar el tesoro.</li>
+<li>Existirá una opción específica en el menú de juego para solicitar una pista.</li>
+<li>La pista indicará si la posición seleccionada se encuentra cerca o lejos del tesoro.</li>
+<li>Se considerará que una casilla está cerca cuando el tesoro se encuentre en una posición adyacente a la casilla seleccionada.</li>
+<li>Se considerará que una casilla está lejos cuando no exista adyacencia con la posición del tesoro.</li>
+<li>Se deberá tener en cuenta la adyacencia horizontal, vertical y diagonal.</li>
+<li>Las pistas no revelarán directamente la posición del tesoro.</li>
+</ul>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h3 id="req005-funcionalidades-del-administrador">Req005 Funcionalidades del administrador</h3>
+<p>El administrador dispondrá de funcionalidades adicionales que no estarán disponibles para los usuarios normales.</p>
+<p>Entre ellas:</p>
+<ul>
+<li>Consultar el estado actual de la matriz de una partida.</li>
+<li>Visualizar la posición real del tesoro.</li>
+<li>Consultar las casillas que ya han sido seleccionadas.</li>
+<li>Acceder a la información de las partidas que se estén desarrollando.</li>
+<li>Consultar los resultados y estadísticas generales de la sesión.</li>
+</ul>
+<p>La visualización de la matriz por parte del administrador deberá mostrar claramente las casillas exploradas, las casillas pendientes y la posición del tesoro.</p>
+<h3 id="req006-sistema-de-registro-y-trazabilidad">Req006 Sistema de registro y trazabilidad</h3>
+<p>La aplicación deberá incorporar un sistema de registro de eventos (<em>logging</em>) que permita realizar un seguimiento de las acciones realizadas durante la ejecución del programa.</p>
+<p>Se deberán registrar, como mínimo, los siguientes acontecimientos:</p>
+<ul>
+<li>Inicio y finalización de la aplicación.</li>
+<li>Intentos de inicio de sesión, tanto correctos como incorrectos.</li>
+<li>Usuario que inicia sesión.</li>
+<li>Inicio de una nueva partida.</li>
+<li>Nivel de dificultad seleccionado.</li>
+<li>Coordenadas seleccionadas en cada intento.</li>
+<li>Solicitud y resultado de las pistas.</li>
+<li>Finalización de las partidas.</li>
+<li>Resultado de cada partida (ganada o abandonada).</li>
+<li>Número de intentos realizados.</li>
+</ul>
+<p>Los registros deberán almacenarse en un fichero externo mediante el módulo <code>logging</code> de Python.</p>
+<p>Se deberá incluir información suficiente para identificar el momento en el que se produce cada evento y el usuario al que corresponde.</p>
+<h3 id="req007-sistema-de-estadisticas">Req007 Sistema de estadísticas</h3>
+<p>La aplicación deberá disponer de un apartado de estadísticas accesible desde el menú principal.</p>
+<p>Las estadísticas mostrarán información correspondiente a las partidas realizadas durante la sesión actual de ejecución del programa.</p>
+<p>Se deberán contemplar, como mínimo, los siguientes indicadores:</p>
+<ul>
+<li>Número total de partidas iniciadas.</li>
+<li>Número total de partidas finalizadas.</li>
+<li>Número de partidas ganadas.</li>
+<li>Número de partidas abandonadas.</li>
+<li>Porcentaje de partidas ganadas respecto al total de partidas finalizadas.</li>
+<li>Número total de intentos realizados.</li>
+<li>Media de intentos necesarios para encontrar el tesoro en las partidas ganadas.</li>
+<li>Número de partidas ganadas según el nivel de dificultad.</li>
+<li>Número de partidas realizadas por cada usuario.</li>
+</ul>
+<p>Además, se deberá incorporar una funcionalidad que permita representar gráficamente parte de la información mediante gráficos generados con alguna biblioteca de Python, como <code>matplotlib</code>.</p>
+<p>Como mínimo, se deberán representar:</p>
+<ul>
+<li>Un gráfico con el número de partidas ganadas y perdidas.</li>
+<li>Un gráfico con el número de partidas realizadas según el nivel de dificultad.</li>
+</ul>
+<h3 id="req008-gestion-de-partidas-y-datos-en-memoria">Req008 Gestión de partidas y datos en memoria</h3>
+<p>La aplicación deberá gestionar la información de las partidas durante su ejecución.</p>
+<ul>
+<li>Los datos de las partidas se almacenarán en estructuras de datos en memoria.</li>
+<li>Se deberá mantener un registro de las partidas realizadas por cada usuario durante la sesión.</li>
+<li>Las estadísticas se calcularán utilizando la información almacenada en memoria.</li>
+<li>Al finalizar la ejecución del programa, la información relativa a las partidas y sus estadísticas se perderá.</li>
+</ul>
+<p><strong>Importante:</strong> la aplicación no deberá implementar persistencia de las partidas ni de las estadísticas. El único fichero destinado a almacenar información de usuarios será el fichero de credenciales. Los registros de eventos se conservarán en el fichero de logging, pero no se utilizarán para recuperar el estado de las partidas ni para reconstruir las estadísticas en ejecuciones posteriores.</p>
+<h3 id="req009-menu-principal">Req009 Menú principal</h3>
+<p>La aplicación deberá disponer de un menú principal adaptado al perfil del usuario autenticado.</p>
+<p>El menú deberá permitir acceder a las diferentes funcionalidades del sistema.</p>
+<p>Como mínimo, deberá contemplar:</p>
+<ul>
+<li>Iniciar una nueva partida.</li>
+<li>Consultar las estadísticas de la sesión.</li>
+<li>Consultar el historial de partidas de la sesión.</li>
+<li>Cerrar sesión.</li>
+<li>Salir de la aplicación.</li>
+</ul>
+<p>Las opciones adicionales de administración únicamente aparecerán cuando el usuario autenticado tenga el perfil de administrador.</p>
+<h2 id="validacion-y-tratamiento-de-errores">Validación y tratamiento de errores</h2>
+<p>La aplicación deberá contemplar un sistema adecuado de validación de datos y tratamiento de excepciones.</p>
+<p>Se deberán controlar, entre otras, las siguientes situaciones:</p>
+<ul>
+<li>Introducción de coordenadas no numéricas.</li>
+<li>Introducción de coordenadas fuera de los límites de la matriz.</li>
+<li>Selección de casillas que ya han sido exploradas.</li>
+<li>Selección de opciones inexistentes en los menús.</li>
+<li>Introducción de credenciales incorrectas.</li>
+<li>Errores relacionados con la lectura del fichero de usuarios.</li>
+<li>Situaciones que puedan provocar errores durante el desarrollo de una partida.</li>
+</ul>
+<p>La aplicación no deberá finalizar inesperadamente como consecuencia de una entrada incorrecta del usuario.</p>
+<h2 id="organizacion-y-estructura-del-proyecto">Organización y estructura del proyecto</h2>
+<p>El proyecto deberá estar organizado de forma modular, separando las diferentes responsabilidades de la aplicación.</p>
+<p>Se deberá evitar implementar toda la lógica del programa en un único fichero.</p>
+<p>Se valorará una correcta distribución del código en diferentes módulos y ficheros, así como el uso de funciones con responsabilidades bien definidas.</p>
+<p>El código deberá ser legible, estar correctamente indentado y utilizar nombres descriptivos para variables, funciones y clases.</p>
+<p>Se deberá incluir un fichero <code>README.md</code> que explique cómo instalar, configurar y ejecutar la aplicación.</p>
+<h2 id="entrega">Entrega</h2>
+<p>Se realizará una realease del repositorio sobre la rama main antes del 22 de noviembre a las 23:59.</p>
+<p>El código será defendido en clase durante 20 min cada grupo. Cualquier código que no pueda ser defendido el Req será evaluado como no conseguido. </p>
+<p>Añadir una tabla resumen de quien ha realizado cada uno de los requisitos del programa. Ambas personas pueden haber realizado un requisito.</p>
+<p>La práctica puede hacerse de forma individual o por parejas, rellenar el siguiente enlace donde se establecerá la hora de la defensa obligatoria.</p>
+<p>https://docs.google.com/spreadsheets/d/1V4IpR9JgrR1lbaFasZR3vBl4fGDjmn07SDXpe6BahDc/edit?gid=0#gid=0</p>
+<h2 id="rubrica-de-evaluacion">Rúbrica de evaluación</h2>
+<table>
+<thead>
+<tr>
+<th>Puntuación</th>
+<th>Nivel de consecución</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 - 4</td>
+<td>No funcional</td>
+<td>La aplicación no funciona correctamente o presenta errores que impiden utilizar las funcionalidades principales.</td>
+</tr>
+<tr>
+<td>4,1 - 7,9</td>
+<td>Funcional con errores</td>
+<td>La aplicación funciona parcialmente, pero presenta errores o funcionalidades que no se han implementado correctamente.</td>
+</tr>
+<tr>
+<td>8 - 10</td>
+<td>Funcional correctamente</td>
+<td>La aplicación funciona correctamente y cumple los requisitos establecidos en el enunciado.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="criterios-de-evaluacion">Criterios de evaluación</h2>
+<h3 id="ra4-adapta-sistemas-erp-crm">RA4 – Adapta sistemas ERP-CRM</h3>
+<table>
+<thead>
+<tr>
+<th>Criterios de evaluación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a) Se han identificado las necesidades y funcionalidades que debe incorporar la aplicación.</td>
+</tr>
+<tr>
+<td>b) Se han definido las estructuras de datos necesarias para gestionar la información de la aplicación.</td>
+</tr>
+<tr>
+<td>c) Se han desarrollado consultas para obtener información sobre las partidas y sus resultados.</td>
+</tr>
+<tr>
+<td>d) Se han adaptado las interfaces de entrada de datos y los procesos de interacción con el usuario.</td>
+</tr>
+<tr>
+<td>e) Se han generado informes con los resultados de las partidas.</td>
+</tr>
+<tr>
+<td>f) Se han creado paneles de estadísticas y representaciones gráficas.</td>
+</tr>
+<tr>
+<td>g) Se han implementado procedimientos para gestionar los registros y eventos de la aplicación.</td>
+</tr>
+<tr>
+<td>h) Se han realizado pruebas para comprobar el funcionamiento de la aplicación.</td>
+</tr>
+<tr>
+<td>i) Se han documentado las operaciones realizadas y las incidencias observadas.</td>
+</tr>
+<tr>
+<td>j) Se han integrado los diferentes componentes desarrollados en la aplicación.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ra5-desarrolla-componentes-para-un-sistema-erp-crm">RA5 – Desarrolla componentes para un sistema ERP-CRM</h3>
+<table>
+<thead>
+<tr>
+<th>Criterios de evaluación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a) Se han reconocido las sentencias y estructuras propias del lenguaje Python.</td>
+</tr>
+<tr>
+<td>c) Se han desarrollado y modificado componentes software para añadir nuevas funcionalidades a la aplicación.</td>
+</tr>
+<tr>
+<td>d) Se han integrado los nuevos componentes software en la aplicación.</td>
+</tr>
+<tr>
+<td>e) Se ha verificado el correcto funcionamiento de los componentes creados.</td>
+</tr>
+<tr>
+<td>f) Se han documentado todos los componentes creados o modificados.</td>
+</tr>
+<tr>
+<td>g) Se ha analizado y organizado la arquitectura de la aplicación.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
